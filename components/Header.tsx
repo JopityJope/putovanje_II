@@ -1,0 +1,22 @@
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Header() {
+  return (
+    <header className="w-full px-10 py-10 flex items-center justify-between fixed top-0 left-0 z-50 opacity-90">
+      <div className="flex items-center">
+        <Image
+          src="/images/logo/logo-1.png"
+          alt="Logo"
+          className=""
+          width={65}
+          height={50}
+        />
+        <p className="text-(--imscrvena) text-base ml-1 pl-3 py-2 border-l-1">
+          ИСТОРИЈСКИ МУЗЕЈ СРБИЈЕ
+        </p>
+      </div>
+      <p className="text-(--crna) text-base mr-2 ">Путовање у XIX веку</p>
+    </header>
+  );
+}

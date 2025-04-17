@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-/* import { Geist, Geist_Mono } from "next/font/google"; */
+import Header from "@/components/Header";
 import PFAgora from "next/font/local";
 import "./globals.css";
 
@@ -10,6 +10,7 @@ const PFAgoraRegular = PFAgora({
 const PFAgoraBold = PFAgora({
   src: "/fonts/PFAgoraSlabPro-Bold.ttf",
   display: "swap",
+  variable: "--font-PFAgoraBold",
 });
 
 const PFAgoraBlackItalic = PFAgora({
@@ -83,9 +84,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${PFAgoraRegular.className} antialiased text-[#50d71e]`}
-      >
+      <body className={`${PFAgoraRegular.className} antialiased text-crna`}>
+        <Header />
         {children}
       </body>
     </html>
