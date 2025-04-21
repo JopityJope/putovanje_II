@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import PFAgora from "next/font/local";
 import "./globals.css";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const PFAgoraRegular = PFAgora({
   src: "/fonts/PFAgoraSlabPro-Regular.ttf",
@@ -86,7 +87,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${PFAgoraRegular.className} antialiased text-crna`}>
         <Header />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

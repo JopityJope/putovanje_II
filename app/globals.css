@@ -7,6 +7,8 @@
 
   --imscrvena: #b2262c;
   --crna: #10100f;
+  --papir: #eae4d5;
+  --papirbg: #f2f0ef;
   --brown: "#4b4239";
   --darkred: "#bb5943";
   --brownlight1: "#6f6861;";
@@ -36,7 +38,7 @@ body {
 /* Compass needle */
 
 .needle {
-  rotate: 45deg;
+  rotate: 51deg;
   animation: swing 4s ease-in-out infinite;
 }
 
