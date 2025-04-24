@@ -1,25 +1,50 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { chapters } from "../data/chapters";
 import { useLanguage } from "../context/LanguageContext";
-import HomeButton from "@/components/HomeButton";
-import ToggleLangaugeButton from "@/components/ToggleLanguageButton";
+import Footer from "../components/Footer";
 import { toRoman } from "../utils/toRoman";
 
 export default function Chapters() {
   const { language } = useLanguage();
 
-  const paperData = [
-    { src: "/images/paper/paper-2.png", width: 450, top: 290, left: 5 },
-    { src: "/images/paper/paper-2.png", width: 450, top: 350, left: 100 },
-    { src: "/images/paper/paper-3.png", width: 570, top: 180, left: 120 },
-    { src: "/images/paper/paper-2.png", width: 500, top: 100, left: 20 },
-    { src: "/images/paper/paper-2.png", width: 530, top: -160, left: 60 },
-    { src: "/images/paper/paper-1.png", width: 350, top: -110, left: 170 },
+  const chapterData = [
+    {
+      paper: "paper-1",
+      width: 280,
+      position: "top-310 left-17",
+      maxw: "135px",
+    },
+    {
+      paper: "paper-1",
+      width: 300,
+      position: "top-385 left-130",
+      maxw: "120px",
+    },
+    {
+      paper: "paper-4",
+      width: 340,
+      position: "top-228 left-135",
+      maxw: "190px",
+    },
+    {
+      paper: "paper-1",
+      width: 280,
+      position: "top-180 left-30",
+      maxw: "160px",
+    },
+    { paper: "paper-4", width: 360, position: "top-82 left-40", maxw: "190px" },
+    {
+      paper: "paper-1",
+      width: 250,
+      position: "top-110 left-160",
+      maxw: "100px",
+    },
   ];
 
   return (
-    <main className="relative flex flex-col min-h-screen bg-background overflow-hidden bg-[url('/images/background/bg-5.webp')] bg-no-repeat bg-cover opacity-90">
+    <main className="relative flex flex-col min-h-screen bg-background overflow-hidden bg-[url('/images/background/bg-5.png')] bg-no-repeat bg-cover opacity-90">
       <div className="absolute top-0 left-0 w-full h-screen z-10">
         <Image
           src="/images/line/chapters.png"
@@ -28,116 +53,55 @@ export default function Chapters() {
           priority
           className="object-cover"
         />
+        <Image
+          src="/images/background/bg-1.webp"
+          alt="Overlay photo"
+          fill
+          priority
+          className="object-cover opacity-18"
+        />
       </div>
       <div className="z-20">
-        <ul>
-          <li className="">
-            <button className="relative cursor-pointer group top-290 left-5">
-              <Image
-                src="/images/paper/paper-2.png"
-                alt="english"
-                height={68.35}
-                width={450}
-                className="rounded"
-              />
-              <div className="absolute inset-0 flex flex-wrap items-center justify-center text-(--crna) text-xl gap-2 text-center ">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-(--crna) text-(--papir) text-2xl font-bold ">
-                  {toRoman(1)}
+        <ul className="relative w-full">
+          {chapterData.map(({ paper, width, position, maxw }, index) => (
+            <li
+              key={index}
+              className={`absolute ${position} flex flex-col items-center`}
+            >
+              <Link
+                href={`/chapter-${index + 1}/page-1`}
+                className="cursor-pointer"
+              >
+                <span className="w-10 h-10 flex items-center justify-center rounded-full pt-1 bg-[var(--crna)] text-[var(--papir)] text-xl font-bold">
+                  {toRoman(index + 1)}
                 </span>
-                <span>{chapters[0][language]}</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button className="relative cursor-pointer group top-350 left-100">
-              <Image
-                src="/images/paper/paper-2.png"
-                alt="english"
-                height={68.35}
-                width={450}
-                className="rounded"
-              />
-              <div className="absolute inset-0 flex flex-wrap items-center justify-center text-(--crna) text-xl gap-2 text-center ">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-(--crna) text-(--papir) text-2xl font-bold ">
-                  {toRoman(2)}
-                </span>
-                <span>{chapters[1][language]}</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button className="relative cursor-pointer group top-180 left-120">
-              <Image
-                src="/images/paper/paper-3.png"
-                alt="english"
-                height={68.35}
-                width={570}
-                className="rounded"
-              />
-              <div className="absolute inset-0 flex flex-wrap items-center justify-center text-(--crna) text-xl gap-2 text-center ">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-(--crna) text-(--papir) text-2xl font-bold ">
-                  {toRoman(3)}
-                </span>
-                <span>{chapters[2][language]}</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button className="relative cursor-pointer group top-100 left-20">
-              <Image
-                src="/images/paper/paper-2.png"
-                alt="english"
-                height={68.35}
-                width={500}
-                className="rounded"
-              />
-              <div className="absolute inset-0 flex flex-wrap items-center justify-center text-(--crna) text-xl gap-2 text-center ">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-(--crna) text-(--papir) text-2xl font-bold ">
-                  {toRoman(4)}
-                </span>
-                <span>{chapters[3][language]}</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button className="relative cursor-pointer group top-[-160] left-60">
-              <Image
-                src="/images/paper/paper-2.png"
-                alt="english"
-                height={68.35}
-                width={530}
-                className="rounded"
-              />
-              <div className="absolute inset-0 flex flex-wrap items-center justify-center text-(--crna) text-xl gap-2 text-center ">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-(--crna) text-(--papir) text-2xl font-bold ">
-                  {toRoman(5)}
-                </span>
-                <span>{chapters[4][language]}</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button className="relative cursor-pointer group top-[-70] left-170 flex flex-col items-center">
-              <span className="w-12 h-12 flex items-center justify-center rounded-full bg-(--crna) text-(--papir) text-2xl font-bold ">
-                {toRoman(6)}
-              </span>
-              <Image
-                src="/images/paper/paper-2.png"
-                alt="english"
-                height={68.35}
-                width={350}
-              />
-              <div className="absolute inset-0 flex flex-wrap items-center justify-center text-(--crna) text-xl text-center ">
-                <span className="mt-10">{chapters[5][language]}</span>
-              </div>
-            </button>
-          </li>
+              </Link>
+
+              <Link
+                href={`/chapter-${index + 1}/page-1`}
+                className="relative flex flex-col items-center"
+              >
+                <Image
+                  src={`/images/paper/${paper}.png`}
+                  alt={`Chapter ${index + 1}`}
+                  height={68.35}
+                  width={width}
+                  className="rounded"
+                />
+                <div className="absolute inset-0 flex items-center justify-center text-lg text-center">
+                  <p
+                    className="!text-[var(--crna)] z-30 opacity-100 text-center break-words"
+                    style={{ maxWidth: maxw }}
+                  >
+                    {chapters[index][language]}
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="fixed bottom-0 right-0 pb-10 pr-10 z-20 flex flex-row gap-4">
-        <HomeButton />
-        <ToggleLangaugeButton />
-      </div>
+      <Footer />
     </main>
   );
 }

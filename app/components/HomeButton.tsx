@@ -14,7 +14,7 @@ export default function HomeButton() {
       onClick={navigateHome}
       className="w-12 h-12 bg-(--crna) rounded-full z-20 cursor-pointer flex items-center justify-center"
     >
-      <Image src="/images/icons/home.png" alt="Home" width={19} height={19} />
+      <Image src="/images/icons/home.png" alt="Home" width={20} height={20} />
     </button>
   );
 }

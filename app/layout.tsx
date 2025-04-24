@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import Header from "@/app/components/Header";
 import PFAgora from "next/font/local";
 import "./globals.css";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -85,7 +85,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${PFAgoraRegular.className} antialiased text-crna`}>
+      <body className={`${PFAgoraRegular.className} antialiased text-[--crna]`}>
         <Header />
         <LanguageProvider>{children}</LanguageProvider>
       </body>

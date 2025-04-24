@@ -23,7 +23,7 @@ function LanguagePicker() {
   };
 
   return (
-    <div className="ml-201 mt-52 z-10">
+    <div className="ml-201 mt-45 z-10">
       <Image
         src="/images/icons/compass.png"
         alt="Background Image"

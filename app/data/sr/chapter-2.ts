@@ -1,4 +1,4 @@
-export const chapter1 = {
+export const chapter2 = {
   title: "Народ збега и сеоба",
   pages: [
     {
