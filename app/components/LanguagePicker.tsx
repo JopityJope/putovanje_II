@@ -1,11 +1,13 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-function LanguagePicker() {
-  const router = useRouter();
+function LanguagePicker({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const { setLanguage } = useLanguage();
 
   const [showLanguages, setShowLanguages] = useState(false);
@@ -19,11 +21,10 @@ function LanguagePicker() {
 
   const handleSelect = (lang: "sr" | "en") => {
     setLanguage(lang);
-    router.push("/chapters");
   };
 
   return (
-    <div className="ml-201 mt-45 z-10">
+    <div className="relative ml-201 mt-53 z-20">
       <Image
         src="/images/icons/compass.png"
         alt="Background Image"
@@ -33,7 +34,14 @@ function LanguagePicker() {
         className="needle cursor-pointer"
         onClick={() => setShowLanguages(!showLanguages)}
       />
-      {showLanguages && (
+      {showLanguages && children}
+    </div>
+  );
+}
+
+export default LanguagePicker;
+
+/* (
         <div className="flex flex-col gap-6 mt-14 ml-[-50px] items-start">
           <button
             className="relative cursor-pointer group"
@@ -66,9 +74,4 @@ function LanguagePicker() {
             </span>
           </button>
         </div>
-      )}
-    </div>
-  );
-}
-
-export default LanguagePicker;
+      ) */

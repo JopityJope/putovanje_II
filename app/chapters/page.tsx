@@ -13,32 +13,37 @@ export default function Chapters() {
     {
       paper: "paper-1",
       width: 280,
-      position: "top-310 left-17",
+      position: "top-165 left-26",
       maxw: "135px",
     },
     {
       paper: "paper-1",
       width: 300,
-      position: "top-385 left-130",
+      position: "top-111 left-80",
       maxw: "120px",
     },
     {
       paper: "paper-4",
       width: 340,
-      position: "top-228 left-135",
+      position: "top-210 left-60",
       maxw: "190px",
     },
     {
       paper: "paper-1",
       width: 280,
-      position: "top-180 left-30",
+      position: "top-330 left-30",
       maxw: "160px",
     },
-    { paper: "paper-4", width: 360, position: "top-82 left-40", maxw: "190px" },
+    {
+      paper: "paper-4",
+      width: 360,
+      position: "top-320 left-155",
+      maxw: "190px",
+    },
     {
       paper: "paper-1",
       width: 250,
-      position: "top-110 left-160",
+      position: "top-155 left-200",
       maxw: "100px",
     },
   ];
@@ -47,14 +52,14 @@ export default function Chapters() {
     <main className="relative flex flex-col min-h-screen bg-background overflow-hidden bg-[url('/images/background/bg-5.png')] bg-no-repeat bg-cover opacity-90">
       <div className="absolute top-0 left-0 w-full h-screen z-10">
         <Image
-          src="/images/line/chapters.png"
+          src="/images/line/main-02.png"
           alt="Overlay photo"
           fill
           priority
           className="object-cover"
         />
         <Image
-          src="/images/background/bg-1.webp"
+          src="/images/background/bg-1-10.png"
           alt="Overlay photo"
           fill
           priority
@@ -68,17 +73,14 @@ export default function Chapters() {
               key={index}
               className={`absolute ${position} flex flex-col items-center`}
             >
-              <Link
-                href={`/chapter-${index + 1}/page-1`}
-                className="cursor-pointer"
-              >
+              <Link href={`/chapter-${index + 1}`} className="cursor-pointer">
                 <span className="w-10 h-10 flex items-center justify-center rounded-full pt-1 bg-[var(--crna)] text-[var(--papir)] text-xl font-bold">
                   {toRoman(index + 1)}
                 </span>
               </Link>
 
               <Link
-                href={`/chapter-${index + 1}/page-1`}
+                href={`/chapter-${index + 1}`}
                 className="relative flex flex-col items-center"
               >
                 <Image

@@ -85,7 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${PFAgoraRegular.className} antialiased text-[--crna]`}>
+      <body
+        className={`${PFAgoraRegular.className} antialiased text-[--crna] overflow-hidden`}
+      >
         <Header />
         <LanguageProvider>{children}</LanguageProvider>
       </body>

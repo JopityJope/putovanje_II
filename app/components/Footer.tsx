@@ -2,11 +2,14 @@ import React from "react";
 import HomeButton from "./HomeButton";
 import ToggleLangaugeButton from "./ToggleLanguageButton";
 
-export default function Footer() {
+export default function Footer({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div className="fixed bottom-0 right-0 pb-10 pr-10 z-20 flex flex-row gap-4">
-      <HomeButton />
-      <ToggleLangaugeButton />
+    <div className="absolute top-460 right-0 pb-5 pr-13 z-30 flex flex-row gap-4">
+      {children}
     </div>
   );
 }
