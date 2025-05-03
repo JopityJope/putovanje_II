@@ -57,7 +57,7 @@ function Carousel({
     {
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
-      duration: 35,
+      duration: 45,
     },
     plugins
   );

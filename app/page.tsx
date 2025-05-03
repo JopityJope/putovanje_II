@@ -17,12 +17,11 @@ export default function Home() {
   return (
     <main className="h-screen w-screen overflow-hidden">
       <Carousel
-        className="h-full w-full bg-background"
+        className="h-full w-full bg-background "
         opts={{
-          align: "start",
-          loop: true,
-          /*   dragFree: false,
-          watchDrag: false, */
+          align: "center",
+
+          watchDrag: false,
         }}
       >
         <CarouselContent className="h-full w-full">
