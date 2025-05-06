@@ -7,6 +7,7 @@ import useEmblaCarousel, {
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/app/context/LanguageContext";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -30,6 +31,7 @@ type CarouselContextProps = {
   scrollNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
+  selectedIndex: number;
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -64,10 +66,24 @@ function Carousel({
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
+  const prevIndexRef = React.useRef<number | null>(null);
+
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return;
+
+    const currentIndex = api.selectedScrollSnap();
+    const prevIndex = prevIndexRef.current;
+
+    console.log("Previous index:", prevIndex);
+    console.log("Current index:", currentIndex);
+
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
+    setSelectedIndex(currentIndex);
+
+    prevIndexRef.current = currentIndex;
   }, []);
 
   const scrollPrev = React.useCallback(() => {
@@ -119,6 +135,7 @@ function Carousel({
         scrollNext,
         canScrollPrev,
         canScrollNext,
+        selectedIndex,
       }}
     >
       <div
@@ -152,21 +169,41 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
-  const { orientation } = useCarousel();
-
+function CarouselItem({
+  className,
+  index,
+  ...props
+}: React.ComponentProps<"div"> & { index: number }) {
   return (
     <div
       role="group"
       aria-roledescription="slide"
       data-slot="carousel-item"
-      className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "" : "",
-        className
-      )}
+      className={cn("min-w-0 shrink-0 grow-0 basis-full", className)}
       {...props}
     />
+  );
+}
+
+function CarouselInnerAnimation({
+  index,
+  children,
+}: {
+  index: number;
+  children: React.ReactNode;
+}) {
+  const { selectedIndex } = useCarousel();
+  const isActive = selectedIndex === index;
+
+  return (
+    <div
+      className={cn(
+        "transition-opacity duration-200 ease-in-out",
+        isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+      )}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -230,26 +267,23 @@ function CarouselNext({
 }
 
 function CarouselNextLang({
-  className,
-  variant = "outline",
-  size = "icon",
-
-  ...props
-}: React.ComponentProps<typeof Button>) {
+  setShowLanguages,
+}: {
+  setShowLanguages: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const { setLanguage } = useLanguage();
-  /* const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; */
+  const { scrollNext } = useCarousel();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleSelect = (lang: "sr" | "en") => {
     setLanguage(lang);
     scrollNext();
+    setShowLanguages(false);
   };
-  const { scrollNext } = useCarousel();
+
+  useEffect(() => {
+    setShowLanguages(false);
+  }, [currentPage, setShowLanguages]);
 
   return (
     <div className="flex flex-col gap-6 mt-14 ml-[-50px] items-start">
@@ -293,7 +327,7 @@ function CarouselPreviousHome({
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+  const { scrollPrev } = useCarousel();
 
   return (
     <button
@@ -314,4 +348,5 @@ export {
   CarouselNext,
   CarouselNextLang,
   CarouselPreviousHome,
+  CarouselInnerAnimation,
 };

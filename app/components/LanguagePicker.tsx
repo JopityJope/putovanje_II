@@ -1,27 +1,54 @@
-"use client";
-import { useState, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
-import { useLanguage } from "@/app/context/LanguageContext";
 
-function LanguagePicker({
+interface LanguagePickerProps {
+  children: ReactNode;
+  showLanguages: boolean;
+  setShowLanguages: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function LanguagePicker({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const { setLanguage } = useLanguage();
+  showLanguages,
+  setShowLanguages,
+}: LanguagePickerProps) {
+  const [fadeState, setFadeState] = useState<
+    "hidden" | "fading-in" | "visible" | "fading-out"
+  >("hidden");
 
-  const [showLanguages, setShowLanguages] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); // To track client-side mount
 
+  // Toggle the language visibility
+  const toggleLanguages = () => {
+    if (showLanguages) {
+      setFadeState("fading-out");
+      setTimeout(() => {
+        setShowLanguages(false);
+      }, 300);
+    } else {
+      setShowLanguages(true);
+      setTimeout(() => {
+        setFadeState("fading-in");
+      }, 10);
+    }
+  };
+
+  // Effect to change fade state when `showLanguages` changes
   useEffect(() => {
-    setMounted(true);
+    if (showLanguages) {
+      setFadeState("fading-in");
+    } else {
+      setFadeState("fading-out");
+    }
+  }, [showLanguages]);
+
+  // Ensuring the component renders only on the client side
+  useEffect(() => {
+    setIsMounted(true); // Set mounted flag after the first render
   }, []);
 
-  if (!mounted) return null;
-
-  const handleSelect = (lang: "sr" | "en") => {
-    setLanguage(lang);
-  };
+  // If not mounted, return null to prevent SSR mismatch
+  if (!isMounted) return null;
 
   return (
     <div className="relative ml-201 mt-53 z-20">
@@ -32,46 +59,21 @@ function LanguagePicker({
         width={55}
         objectFit="cover"
         className="needle cursor-pointer"
-        onClick={() => setShowLanguages(!showLanguages)}
+        onClick={toggleLanguages}
       />
-      {showLanguages && children}
+      {/* Conditionally render children with animation */}
+      {fadeState !== "hidden" && (
+        <div
+          className={`absolute top-full left-0 transition-opacity duration-200 ease-in-out
+            ${
+              fadeState === "fading-in" || fadeState === "visible"
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
+            }`}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 }
-
-export default LanguagePicker;
-
-/* (
-        <div className="flex flex-col gap-6 mt-14 ml-[-50px] items-start">
-          <button
-            className="relative cursor-pointer group"
-            onClick={() => handleSelect("sr")}
-          >
-            <Image
-              src="/images/paper/paper-1.png"
-              alt="српски"
-              height={68.35}
-              width={200}
-              className="rounded"
-            />
-            <span className="absolute inset-0 flex items-center justify-center text-black text-xl">
-              српски
-            </span>
-          </button>
-          <button
-            className="relative cursor-pointer group"
-            onClick={() => handleSelect("en")}
-          >
-            <Image
-              src="/images/paper/paper-1.png"
-              alt="english"
-              height={68.35}
-              width={202}
-              className="rounded"
-            />
-            <span className="absolute inset-0 flex items-center justify-center text-black text-xl">
-              English
-            </span>
-          </button>
-        </div>
-      ) */

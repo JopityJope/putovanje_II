@@ -52,22 +52,6 @@ export default function ChaptersPage() {
 
   return (
     <div className="relative min-h-screen">
-      <div className="absolute top-0 left-0 w-full h-screen bg-[url('/images/background/bg-1.webp')] bg-no-repeat bg-cover">
-        <Image
-          src="/images/line/main-02.png"
-          alt="Overlay photo"
-          fill
-          priority
-          className="object-cover"
-        />
-        <Image
-          src="/images/background/main-02.webp"
-          alt="Overlay photo"
-          fill
-          priority
-          className="object-cover opacity-18"
-        />
-      </div>
       <div className="z-20">
         <ul className="relative w-full">
           {chapterData.map(({ paper, width, position, maxw }, index) => (
