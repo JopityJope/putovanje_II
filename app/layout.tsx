@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import PFAgora from "next/font/local";
 import "./globals.css";
 import { LanguageProvider } from "./context/LanguageContext";
-import PageTransition from "./components/PageTransition";
+import { ChapterProvider } from "./context/ChapterContext";
 
 const PFAgoraRegular = PFAgora({
   src: "/fonts/PFAgoraSlabPro-Regular.ttf",
@@ -90,7 +90,9 @@ export default function RootLayout({
         className={`${PFAgoraRegular.className} antialiased text-[--crna] overflow-hidden w-full h-screen bg-[url('/images/background/bg-1.webp')] bg-no-repeat bg-cover`}
       >
         <Header />
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <ChapterProvider> {children}</ChapterProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function PageTransition({
+export default function PageTransitionChapters({
   children,
   transitionKey,
 }: {

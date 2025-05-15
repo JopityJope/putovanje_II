@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/app/context/LanguageContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -32,6 +32,7 @@ type CarouselContextProps = {
   canScrollPrev: boolean;
   canScrollNext: boolean;
   selectedIndex: number;
+  prevIndex: number | null;
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -67,23 +68,21 @@ function Carousel({
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
   const prevIndexRef = React.useRef<number | null>(null);
-
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return;
 
     const currentIndex = api.selectedScrollSnap();
-    const prevIndex = prevIndexRef.current;
+    const previousIndex = prevIndexRef.current;
 
-    console.log("Previous index:", prevIndex);
-    console.log("Current index:", currentIndex);
+    setSelectedIndex(currentIndex);
+    prevIndexRef.current = currentIndex;
 
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
-    setSelectedIndex(currentIndex);
 
-    prevIndexRef.current = currentIndex;
+    setPrevIndex(previousIndex);
   }, []);
 
   const scrollPrev = React.useCallback(() => {
@@ -123,19 +122,21 @@ function Carousel({
     };
   }, [api, onSelect]);
 
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+
   return (
     <CarouselContext.Provider
       value={{
         carouselRef,
-        api: api,
+        api,
         opts,
-        orientation:
-          orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+        orientation,
         scrollPrev,
         scrollNext,
         canScrollPrev,
         canScrollNext,
         selectedIndex,
+        prevIndex,
       }}
     >
       <div
@@ -185,32 +186,176 @@ function CarouselItem({
   );
 }
 
-function CarouselInnerAnimation({
+const CarouselInnerAnimation = ({
   index,
   children,
 }: {
   index: number;
   children: React.ReactNode;
-}) {
-  const { selectedIndex } = useCarousel();
-  const isActive = selectedIndex === index;
+}) => {
+  const { selectedIndex, prevIndex } = useCarousel();
+
+  const isCurrent = selectedIndex === index;
+  const isPrevious = prevIndex === index;
+  const isFirstLoad = prevIndex === null && selectedIndex === 0;
 
   return (
-    <div
-      className={cn(
-        "transition-opacity duration-200 ease-in-out",
-        isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+    <>
+      {isPrevious && (
+        <motion.div
+          key={`prev-${index}`}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0 w-full h-full z-10"
+        >
+          {children}
+        </motion.div>
       )}
-    >
-      {children}
-    </div>
+
+      {isFirstLoad && isCurrent && (
+        <motion.div
+          key={`first-load-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full z-20"
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {!isFirstLoad && isCurrent && (
+        <motion.div
+          key={`current-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.4 }}
+          className="absolute inset-0 w-full h-full z-20"
+        >
+          {children}
+        </motion.div>
+      )}
+    </>
   );
-}
+};
+
+const ChapterAnimation = ({
+  index,
+  children,
+}: {
+  index: number;
+  children: React.ReactNode;
+}) => {
+  const { selectedIndex, prevIndex } = useCarousel();
+
+  const isCurrent = selectedIndex === index;
+  const isPrevious = prevIndex === index;
+  const isFirstLoad = prevIndex === null && selectedIndex === 0;
+
+  return (
+    <>
+      {isPrevious && (
+        <motion.div
+          key={`prev-${index}`}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0 w-full h-full z-10"
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {isFirstLoad && isCurrent && (
+        <motion.div
+          key={`first-load-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full z-20"
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {!isFirstLoad && isCurrent && (
+        <motion.div
+          key={`current-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.4 }}
+          className="absolute inset-0 w-full h-full z-20"
+        >
+          {children}
+        </motion.div>
+      )}
+    </>
+  );
+};
+
+const ButtonAnimation = ({
+  index,
+  children,
+}: {
+  index: number;
+  children: React.ReactNode;
+}) => {
+  const { selectedIndex, prevIndex } = useCarousel();
+
+  const isCurrent = selectedIndex === index;
+  const isPrevious = prevIndex === index;
+  const isFirstLoad = prevIndex === null && selectedIndex === 0;
+
+  return (
+    <>
+      {isPrevious && (
+        <motion.div
+          key={`prev-${index}`}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0 }}
+          className="absolute inset-0 w-full h-full z-10"
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {isFirstLoad && isCurrent && (
+        <motion.div
+          key={`first-load-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full z-20"
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {!isFirstLoad && isCurrent && (
+        <motion.div
+          key={`current-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.7, duration: 0.4 }}
+          className="absolute inset-0 w-full h-full z-20"
+        >
+          {children}
+        </motion.div>
+      )}
+    </>
+  );
+};
 
 function CarouselPrevious({
   className,
   variant = "outline",
   size = "icon",
+
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
@@ -221,17 +366,15 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full",
-        orientation === "horizontal"
-          ? "top-1/2 -left-12 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-250 z-30",
+        orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <span className="">&#10094;</span>
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -252,7 +395,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full z-50",
+        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-8 z-30",
         orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
         className
       )}
@@ -260,8 +403,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
-      <span className="sr-only">Next slide</span>
+      <span className="">&#10095;</span>
     </Button>
   );
 }
@@ -349,4 +491,6 @@ export {
   CarouselNextLang,
   CarouselPreviousHome,
   CarouselInnerAnimation,
+  ButtonAnimation,
+  ChapterAnimation,
 };

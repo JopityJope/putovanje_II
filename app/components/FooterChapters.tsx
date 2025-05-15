@@ -10,7 +10,7 @@ export default function FooterChapters() {
         src="/images/paper/paper-9.webp"
         alt=""
         width={1080}
-        height={400}
+        height={328.9}
         priority
         className="scale-y-130 absolute bottom-[-6.5rem] z-10"
       />

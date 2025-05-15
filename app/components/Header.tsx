@@ -9,7 +9,8 @@ export default function Header() {
           alt="Logo"
           className=""
           width={65}
-          height={50}
+          height={65}
+          priority={false}
         />
         <p className="text-(--imscrvena) text-small ml-1 pl-3 py-2 border-l-1 border-(--imscrvena)">
           ИСТОРИЈСКИ МУЗЕЈ СРБИЈЕ

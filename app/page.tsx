@@ -11,9 +11,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
   CarouselNextLang,
-  CarouselPrevious,
   CarouselPreviousHome,
   CarouselInnerAnimation,
 } from "@/components/ui/carousel";
@@ -21,7 +19,7 @@ import {
 export default function Home() {
   const [showLanguages, setShowLanguages] = useState(false);
   return (
-    <PageTransition>
+    <PageTransition transitionKey="home">
       <main className="h-screen w-screen overflow-hidden">
         <Carousel
           className="h-full w-full "
@@ -70,7 +68,7 @@ tracking-wide text-(--imscrvena) select-none`}
             </CarouselItem>
             <CarouselItem className="h-full w-full" index={1}>
               <div className="relative min-h-screen">
-                <div className="absolute top-0 left-0 w-full h-screen bg-[url('/images/background/bg-1.webp')] bg-no-repeat bg-cover">
+                <div className="">
                   <Image
                     src="/images/line/main-02.png"
                     alt="Overlay photo"
@@ -88,11 +86,11 @@ tracking-wide text-(--imscrvena) select-none`}
                 </div>
                 <CarouselInnerAnimation index={1}>
                   <ChaptersPage />
-                  <Footer>
-                    <CarouselPreviousHome />
-                    <ToggleLangaugeButton />
-                  </Footer>
                 </CarouselInnerAnimation>
+                <Footer>
+                  <CarouselPreviousHome />
+                  <ToggleLangaugeButton />
+                </Footer>
               </div>
             </CarouselItem>
           </CarouselContent>

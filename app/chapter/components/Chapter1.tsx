@@ -1,0 +1,176 @@
+import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselInnerAnimation,
+  ButtonAnimation,
+  ChapterAnimation,
+} from "@/components/ui/carousel";
+import { chapters } from "@/app/data/chapters";
+
+import { chapter1sr } from "@/app/data/sr/chapter-1";
+import { chapter1en } from "@/app/data/en/chapter-1";
+import { toRoman } from "@/app/utils/toRoman";
+import FooterChapters from "@/app/components/FooterChapters";
+import { useLanguage } from "@/app/context/LanguageContext";
+
+function page() {
+  const { language } = useLanguage();
+  const chapter = language === "sr" ? chapter1sr : chapter1en;
+
+  return (
+    <main className="h-screen w-screen overflow-hidden">
+      <Carousel
+        className="h-full w-full relative"
+        opts={{ align: "center", watchDrag: true, duration: 45 }}
+      >
+        <CarouselContent className="h-full w-full">
+          {chapter.pages.map((page, index) => (
+            <CarouselItem
+              className="h-full w-full relative"
+              key={index}
+              index={index}
+            >
+              <div className="absolute w-full h-screen bg-no-repeat bg-cover">
+                {/* <Image
+                  src={`/images/line/ch1_${index + 1}.png`}
+                  alt=""
+                  fill
+                  priority
+                  className="object-cover z-20"
+                /> */}
+              </div>
+
+              <ChapterAnimation index={index}>
+                <div className="z-30 text-[--crna]">
+                  {index === 0 && (
+                    <>
+                      <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
+                        {toRoman(1)}
+                      </span>
+
+                      <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl mt-85 ml-20">
+                        {language === "sr" ? (
+                          <>
+                            <span className="ml-10">Народ збега</span>
+                            <span className="ml-18">и сеоба</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="ml-10">The people of </span>
+                            <span className="ml-18"> flight and refuge</span>
+                          </>
+                        )}
+                      </h1>
+                    </>
+                  )}
+
+                  <p className="absolute mt-175 ml-115 max-w-107 text-center text-lg">
+                    {page.text}
+                  </p>
+                </div>
+
+                {/*  <div className="flex items-center justify-center absolute mt-290">
+                  <Image
+                     src={`/images/chapter-1/19/${index + 1}.png`} 
+                    src={`/images/chapter-1/20.webp`} 
+                    src={`/images/chapter-1/20.webp`}
+                    alt=""
+                    height={30}
+                    width={1080}
+                    priority
+                    className=" opacity-30"
+                  />
+                </div> */}
+              </ChapterAnimation>
+              <ButtonAnimation index={index}>
+                <CarouselNext />
+                <CarouselPrevious />
+              </ButtonAnimation>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      <FooterChapters />
+    </main>
+  );
+}
+
+export default page;
+
+/* <div className="flex gap-20 mt-310 ml-25 items-center justify-center absolute">
+                    <Image
+                      src="/images/chapter-1/04.webp"
+                      alt=""
+                      height={330}
+                      width={330}
+                      priority
+                      className="object-cover p-10 bg-white"
+                    />
+                    <Image
+                      src="/images/chapter-1/01.webp"
+                      alt=""
+                      width={450}
+                      height={330}
+                      priority
+                      className="object-cover p-10 bg-white"
+                    />
+                  </div> */
+
+/*   <CarouselItem className="h-full w-full relative" index={0}>
+            <div className="absolute w-full h-screen  bg-no-repeat bg-cover">
+              <Image
+                src="/images/line/ch1_1.png"
+                alt=""
+                fill
+                priority
+                className="object-cover z-20"
+              />
+            </div>
+            <CarouselInnerAnimation index={0}>
+              <div className="z-30 text-(--crna)">
+                <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
+                  {toRoman(1)}
+                </span>
+
+                <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl mt-85 ml-20">
+                  {language === "sr" ? (
+                    <>
+                      <span className="ml-10">Народ збега</span>
+                      <span className="ml-18">и сеоба</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="ml-10">The people of </span>
+                      <span className="ml-18"> flight and refuge</span>
+                    </>
+                  )}
+                </h1>
+                <p className="absolute mt-175 ml-115 max-w-107 text- text-center text-lg">
+                  {chapter.pages[0].text}
+                </p>
+                <div className="flex gap-20 mt-310 ml-25 items-center justify-center absolute">
+                  <Image
+                    src="/images/chapter-1/04.webp"
+                    alt=""
+                    height={330}
+                    width={330}
+                    priority
+                    className="object-cover p-10 bg-[white]"
+                  />
+                  <Image
+                    src="/images/chapter-1/01.webp"
+                    alt=""
+                    width={450}
+                    height={330}
+                    priority
+                    className="object-cover p-10 bg-[white]"
+                  />
+                </div>
+              </div>
+            </CarouselInnerAnimation>
+          </CarouselItem> */
