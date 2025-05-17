@@ -5,7 +5,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  CarouselInnerAnimation,
+  TextAnimation,
   ButtonAnimation,
   ChapterAnimation,
 } from "@/components/ui/carousel";
@@ -44,36 +44,46 @@ function page() {
                 /> */}
               </div>
 
-              <ChapterAnimation index={index}>
-                <div className="z-30 text-[--crna]">
-                  {index === 0 && (
-                    <>
-                      <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
-                        {toRoman(1)}
-                      </span>
+              <div className="z-30 text-[--crna]">
+                {index === 0 && (
+                  <ChapterAnimation index={index}>
+                    <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
+                      {toRoman(1)}
+                    </span>
 
-                      <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl mt-85 ml-20">
-                        {language === "sr" ? (
-                          <>
-                            <span className="ml-10">Народ збега</span>
-                            <span className="ml-18">и сеоба</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="ml-10">The people of </span>
-                            <span className="ml-18"> flight and refuge</span>
-                          </>
-                        )}
-                      </h1>
-                    </>
-                  )}
-
-                  <p className="absolute mt-175 ml-115 max-w-107 text-center text-lg">
-                    {page.text}
-                  </p>
+                    <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl mt-85 ml-20">
+                      {language === "sr" ? (
+                        <>
+                          <span className="ml-10">Народ збега</span>
+                          <span className="ml-18 mt-2">и сеоба</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="ml-10">The people of </span>
+                          <span className="ml-18 mt-2"> flight and refuge</span>
+                        </>
+                      )}
+                    </h1>
+                  </ChapterAnimation>
+                )}
+                <div
+                  className={`relative flex flex-col items-center text-lg text-justify ${page.paragraphPosition}`}
+                >
+                  <TextAnimation index={index}>
+                    <p
+                      className={`items-center text-lg text-justify `}
+                      dangerouslySetInnerHTML={{ __html: page.text }}
+                    ></p>
+                  </TextAnimation>
+                  <ButtonAnimation index={index}>
+                    <p className="mt-12 text-2xl">
+                      - {index + 1}/{chapter.pages.length} -
+                    </p>
+                  </ButtonAnimation>
                 </div>
+              </div>
 
-                {/*  <div className="flex items-center justify-center absolute mt-290">
+              {/*  <div className="flex items-center justify-center absolute mt-290">
                   <Image
                      src={`/images/chapter-1/19/${index + 1}.png`} 
                     src={`/images/chapter-1/20.webp`} 
@@ -85,7 +95,7 @@ function page() {
                     className=" opacity-30"
                   />
                 </div> */}
-              </ChapterAnimation>
+
               <ButtonAnimation index={index}>
                 <CarouselNext />
                 <CarouselPrevious />

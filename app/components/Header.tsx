@@ -1,6 +1,17 @@
+"use client";
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Header() {
+  const { language } = useLanguage();
+  const titleText =
+    language === "sr"
+      ? "ИСТОРИЈСКИ МУЗЕЈ СРБИЈЕ"
+      : "HISTORICAL MUSEUM OF SERBIA";
+
+  const subtitleText =
+    language === "sr" ? "Путовање у XIX веку" : "Nineteenth-Century Travel";
+
   return (
     <header className="w-full pl-5 pr-10 py-5 flex items-center justify-between fixed top-0 z-50 opacity-90 w-screen select-none">
       <div className="flex items-center">
@@ -13,10 +24,10 @@ export default function Header() {
           priority={false}
         />
         <p className="text-(--imscrvena) text-small ml-1 pl-3 py-2 border-l-1 border-(--imscrvena)">
-          ИСТОРИЈСКИ МУЗЕЈ СРБИЈЕ
+          {titleText}
         </p>
       </div>
-      <p className="text-(--crna) text-xl">Путовање у XIX веку</p>
+      <p className="text-(--crna) text-xl">{subtitleText}</p>
     </header>
   );
 }

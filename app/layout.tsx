@@ -89,8 +89,9 @@ export default function RootLayout({
       <body
         className={`${PFAgoraRegular.className} antialiased text-[--crna] overflow-hidden w-full h-screen bg-[url('/images/background/bg-1.webp')] bg-no-repeat bg-cover`}
       >
-        <Header />
         <LanguageProvider>
+          <Header />
+
           <ChapterProvider> {children}</ChapterProvider>
         </LanguageProvider>
       </body>

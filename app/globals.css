@@ -238,3 +238,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+em {
+  display: inline !important;
+  font-style: italic !important;
+}

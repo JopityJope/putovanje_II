@@ -296,6 +296,61 @@ const ChapterAnimation = ({
   );
 };
 
+const TextAnimation = ({
+  index,
+  children,
+}: {
+  index: number;
+  children: React.ReactNode;
+}) => {
+  const { selectedIndex, prevIndex } = useCarousel();
+
+  const isCurrent = selectedIndex === index;
+  const isPrevious = prevIndex === index;
+  const isFirstLoad = prevIndex === null && selectedIndex === 0;
+
+  return (
+    <>
+      {isPrevious && (
+        <motion.div
+          key={`prev-${index}`}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className=""
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {isFirstLoad && isCurrent && (
+        <motion.div
+          key={`first-load-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className=""
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {!isFirstLoad && isCurrent && (
+        <motion.div
+          key={`current-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.4 }}
+          className=""
+        >
+          {children}
+        </motion.div>
+      )}
+    </>
+  );
+};
+
 const ButtonAnimation = ({
   index,
   children,
@@ -318,7 +373,7 @@ const ButtonAnimation = ({
           animate={{ opacity: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0 }}
-          className="absolute inset-0 w-full h-full z-10"
+          className=" "
         >
           {children}
         </motion.div>
@@ -330,7 +385,7 @@ const ButtonAnimation = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0, ease: "easeOut" }}
-          className="absolute inset-0 w-full h-full z-20"
+          className=""
         >
           {children}
         </motion.div>
@@ -342,7 +397,7 @@ const ButtonAnimation = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.7, duration: 0.4 }}
-          className="absolute inset-0 w-full h-full z-20"
+          className=""
         >
           {children}
         </motion.div>
@@ -355,10 +410,11 @@ function CarouselPrevious({
   className,
   variant = "outline",
   size = "icon",
-
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+
+  if (!canScrollPrev) return null;
 
   return (
     <Button
@@ -366,15 +422,14 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-250 z-30",
+        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-248.5 z-30",
         orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
         className
       )}
-      disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <span className="">&#10094;</span>
+      <span>&#10094;</span>
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -384,10 +439,11 @@ function CarouselNext({
   className,
   variant = "outline",
   size = "icon",
-
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
+
+  if (!canScrollNext) return null;
 
   return (
     <Button
@@ -395,15 +451,14 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-8 z-30",
+        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-10 z-30",
         orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
         className
       )}
-      disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <span className="">&#10095;</span>
+      <span>&#10095;</span>
     </Button>
   );
 }
@@ -493,4 +548,5 @@ export {
   CarouselInnerAnimation,
   ButtonAnimation,
   ChapterAnimation,
+  TextAnimation,
 };
