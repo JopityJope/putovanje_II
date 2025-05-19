@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import {
   Carousel,
   CarouselContent,
@@ -10,7 +11,7 @@ import {
   ChapterAnimation,
 } from "@/components/ui/carousel";
 import { chapters } from "@/app/data/chapters";
-
+import { useChapter } from "@/app/context/ChapterContext";
 import { chapter1sr } from "@/app/data/sr/chapter-1";
 import { chapter1en } from "@/app/data/en/chapter-1";
 import { toRoman } from "@/app/utils/toRoman";
@@ -20,6 +21,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 function page() {
   const { language } = useLanguage();
   const chapter = language === "sr" ? chapter1sr : chapter1en;
+  const { setActiveChapter } = useChapter();
 
   return (
     <main className="h-screen w-screen overflow-hidden">
@@ -43,8 +45,57 @@ function page() {
                   className="object-cover z-20"
                 /> */}
               </div>
+              <div className="absolute w-full h-screen bg-no-repeat bg-cover left-105 top-70">
+                <ButtonAnimation index={index}>
+                  {page.quote && (
+                    <div>
+                      <div className="relative">
+                        <Image
+                          src="/images/paper/paper-12.webp"
+                          alt=""
+                          className="rotate-7"
+                          width={520}
+                          height={130}
+                        />
 
-              <div className="z-30 text-[--crna]">
+                        <div className="absolute inset-0 ml-28 flex flex-col justify-center max-w-80">
+                          <p className="italic text-sm text-[--crna] relative mt-4">
+                            <span className="text-sm align-top mr-1 leading-none">
+                              ❝
+                            </span>
+                            <span
+                              className=""
+                              dangerouslySetInnerHTML={{
+                                __html: page.quote.text,
+                              }}
+                            />
+                            <span className="text-sm align-top ml-1 leading-none">
+                              ❞
+                            </span>
+                          </p>
+                          <div className="flex items-center pb-2 gap-2 mt-3">
+                            <Image
+                              alt=""
+                              src={"/images/icons/feather.svg"}
+                              width={30}
+                              height={30}
+                              className=""
+                            ></Image>
+                            <p
+                              className="text-sm text-[--crna]"
+                              dangerouslySetInnerHTML={{
+                                __html: page.quote.author,
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </ButtonAnimation>
+              </div>
+
+              <div className="absolute z-30 text-[--crna] rotate">
                 {index === 0 && (
                   <ChapterAnimation index={index}>
                     <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
@@ -99,6 +150,36 @@ function page() {
               <ButtonAnimation index={index}>
                 <CarouselNext />
                 <CarouselPrevious />
+                {index === chapter.pages.length - 1 && (
+                  <>
+                    <div
+                      className={`absolute top-165 left-190 flex flex-col items-center cursor-pointer`}
+                      onClick={() => setActiveChapter(2)}
+                    >
+                      <span className="w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-[var(--crna)] text-[var(--papirbg)] text-xl font-bold">
+                        {toRoman(2)}
+                      </span>
+
+                      <div className="relative flex flex-col items-center">
+                        <Image
+                          src={`/images/paper/paper-1.png`}
+                          alt={`Chapter ${index + 1}`}
+                          height={68.35}
+                          width={300}
+                          className="rounded"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center text-lg text-center">
+                          <p
+                            className="!text-[var(--crna)] z-30 opacity-100 text-center break-words"
+                            style={{ maxWidth: 120 }}
+                          >
+                            {chapters[1][language]}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </ButtonAnimation>
             </CarouselItem>
           ))}
@@ -184,3 +265,18 @@ export default page;
               </div>
             </CarouselInnerAnimation>
           </CarouselItem> */
+
+/* <Button
+      data-slot="carousel-next"
+      variant={variant}
+      size={size}
+      className={cn(
+        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-10 z-30",
+        orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
+        className
+      )}
+      onClick={scrollNext}
+      {...props}
+    >
+      <span>&#10095;</span>
+    </Button> */

@@ -16,10 +16,12 @@ import { chapter2en } from "@/app/data/en/chapter-2";
 import { toRoman } from "@/app/utils/toRoman";
 import FooterChapters from "@/app/components/FooterChapters";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useChapter } from "@/app/context/ChapterContext";
 
 function page() {
   const { language } = useLanguage();
   const chapter = language === "sr" ? chapter2sr : chapter2en;
+  const { setActiveChapter } = useChapter();
 
   return (
     <main className="h-screen w-screen overflow-hidden">
@@ -99,6 +101,36 @@ function page() {
               <ButtonAnimation index={index}>
                 <CarouselNext />
                 <CarouselPrevious />
+                {index === chapter.pages.length - 1 && (
+                  <>
+                    <div
+                      className={`absolute top-165 left-190 flex flex-col items-center cursor-pointer`}
+                      onClick={() => setActiveChapter(3)}
+                    >
+                      <span className="w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-[var(--crna)] text-[var(--papirbg)] text-xl font-bold">
+                        {toRoman(3)}
+                      </span>
+
+                      <div className="relative flex flex-col items-center">
+                        <Image
+                          src={`/images/paper/paper-4.png`}
+                          alt={`Chapter ${index + 1}`}
+                          height={68.35}
+                          width={340}
+                          className="rounded"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center text-lg text-center">
+                          <p
+                            className="!text-[var(--crna)] z-30 opacity-100 text-center break-words"
+                            style={{ maxWidth: 190 }}
+                          >
+                            {chapters[2][language]}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </ButtonAnimation>
             </CarouselItem>
           ))}

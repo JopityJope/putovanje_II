@@ -13,9 +13,9 @@
     "windows": [
       {
         "title": "Putovanje_II",
-        "fullscreen": false,
-        "resizable": true,
-        "decorations": true
+        "fullscreen": true,
+        "resizable": false,
+        "decorations": false
       }
     ],
     "security": {

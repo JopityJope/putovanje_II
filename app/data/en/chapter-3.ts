@@ -1,46 +1,62 @@
 export const chapter3en = {
-  title: "In search for an extra coin",
+  title: "On the sources of faith and patriotism",
   pages: [
     {
-      text: "Older than cities and states, trade has been present since the very beginning of human history and, by its nature, it required the movement of goods, people, and money. Trade hasn't changed its essence to the present day – people were selling goods they had surpluses of and buying those they were lacking. Its main protagonist, the merchant, could have been encountered on every road, in every tavern or port, regardless of the era. Their motives for leaving home, in contrast to most people, weren't conditioned by trying to escape wars or diseases, but rather by lucrative business opportunities. That journey, though filled with dangers, brought success, profits, and prestige. In direct connection with profit-making were the advancements in road infrastructure and the means of transportation, so wealthy merchants increasingly acted as benefactors of road maintenance, the construction of bridges, and shipbuilding.",
-      circlePosition: { top: "100px", left: "18px" },
-      paragraphPosition: "mt-175 ml-115 max-w-107",
-      image: "/images/chapter-1/1.jpg",
-    },
-    {
-      text: "In medieval Serbia, trade was quite extensive. It was best encapsulated by endless caravans of horses and oxen, loaded with goods, slowly moving along dusty roads. Trade links spread across the country, connecting it with coastal cities, with marketplaces popping up at the intersections of roads or close to monasteries and towns. Merchants and their products were protected by law, and trade itself was guaranteed by rulers' charters and contracts. The appearance of the Ottomans brought an end to a long tradition of Serbian commerce, so trade moved into the hands of Turks, Aromanians, Jews, and Vlachs, with a few rare examples of Serbian merchants.",
-      circlePosition: { top: "100px", left: "18px" },
-      paragraphPosition: "mt-175 ml-115 max-w-107",
-      image: "/images/chapter-1/1.jpg",
-    },
-    {
-      text: "When it comes to global trade, it has been on the rise ever since the 16th century. Geographical discoveries and the subsequent creation of colonies were supported and often even sponsored by wealthy merchant families. The expansion of colonialism additionally increased their financial power, which allowed some individuals to move up the social ladder. A merchant became an embodiment of a <em>man of the world</em>, a traveler well-informed about foreign languages and current events in other countries. Therefore, travel became an essential part of every future merchant's education, so sons from tradesman families often went on expeditions along with their fathers. 19th-century industrialization accelerated the development of commerce further, since merchants were increasingly investing in businesses based on industrial production. While factories made the increase in productivity possible, the main drivers of <em>The Revolution of Travel </em>– railways and steamships – enabled them to quickly transport and sell new goods.",
-      circlePosition: { top: "100px", left: "18px" },
-      paragraphPosition: "mt-175 ml-115 max-w-107",
-      image: "/images/chapter-1/1.jpg",
-    },
-    {
-      text: "With the establishment of the autonomous principality in the first half of the 19th century, trade in Serbia fell into the hands of a few prominent people, who, thanks to their ties with Austria and Russia, played a key role in organizing and financing of Serbia's independence struggle. Throughout the century, the Sava and Danube Rivers were used as vital trading routes towards Austria, Wallachia, and the Black Sea, whereas rafts filled with seasonal agricultural products were sent downstream by the Drina River. Land trade was still carried out by caravans, like in previous centuries. A merchant would hire skilled workers (<em>kiridžije</em> and <em>rabadžije</em>) for the transportation needs, who would form the caravan and be responsible for its safety, loading of horses and oxen, direction of travel, selecting places where they would rest along the way, etc.",
+      text: "With rare merchants, the most mobile part of Serbian society during the period of Ottoman rule were monks and pilgrims. A difficult financial predicament the Serbian Orthodox Church found itself in demanded many monks to spend months and years roaming across the Balkan Peninsula, as well as Wallachia, Moldova, and Russia, to collect financial aid and establish ties with fellow Orthodox nations. Religious feelings have also been a strong incentive for the movement of regular people who, on major holidays, went to the nearby monasteries to attend a holy service. Holly places, such as churches, monasteries, and the ruins of old temples or tombs, played an important role in the life and traditions of the Serbian people. People also went there in times of illness or danger because it was believed that the presence of holy relics kept in those places could provide healing and protection.",
       circlePosition: { top: "100px", left: "18px" },
       paragraphPosition: "mt-175 ml-115 max-w-107",
       image: "/images/chapter-1/1.jpg",
       quote: {
-        text: "<em>Along the road, we met many small freight carts, mostly filled with leather or wine, slowly pulled by buffaloes. A distinct squeaking of the cart and the yelling and singing of the coachman widely spread throughout the forest.<em>",
+        text: "<em>Peasants do not have faith in doctors. When a family member is severely ill, they put him on a horse and take him to the closest monastery, where he is read prayers for healing […] I have often seen such sad scenes, a tormented sick person mounted on a horse, whose movement caused him even more suffering.<em>",
         author:
           "Otto Dubislav von Pirch, <em>Reise in Serbien im Spätherbst 1829</em>",
       },
     },
     {
-      text: "By the mid-century, there were two main types of merchants in Serbia. The first was a wholesaler, with affiliations and businesses in Vienna, Istanbul, Venice, and other trade centers. These rich merchants followed trends in global trade and were the first to embrace the novelties, like railroads and steamships. They were the ones who brought European fashion and new goods to Belgrade and other Serbian cities. Contemporaries noticed that many things that symbolized traditional ways of life were slowly being replaced by their modern European counterparts. However, regardless of how important wholesalers were for the development of the bourgeoisie and the cities, the most common types of merchants in 19th-century Serbia were the traveling salesmen. Often referred to as the <em>baggers</em> after their humble bundles loaded with different small handmade products, they roamed from one village to another and sold cheap goods. Regardless of how much the state tried to put an end to their tax evasion, they managed to preserve this manner of trade until the mid-20th century. The prevalent goals of their wanderings were the local fairs, which were the main trading events in every region of Serbia. ",
+      text: "Much like the monks, pilgrims were also inspired to go on a journey by a deep sense of religious devotion, although the goals of their trips were primarily of a personal nature. A pilgrimage is a trip to a distant holy place normally not visited during a regular liturgical cycle. This form of travel was an act of active piety, and its goal was the salvation of the soul through a stay in places connected to the lives of Christ, the Virgin Mary, and the saints. Pilgrimage was also common among nations of different religions. This tradition has been present among Serbian people for centuries and can be traced back to Saint Sava, who was most likely the first among Serbs to &quot;bow down to the lifesaving and life-giving tomb of our Lord Christ,&quot; as was written by his hagiographers Domentijan and Theodosius.",
       circlePosition: { top: "100px", left: "18px" },
       paragraphPosition: "mt-175 ml-115 max-w-107",
       image: "/images/chapter-1/1.jpg",
     },
     {
-      text: "At fairs, one could meet wholesalers with goods from abroad, petty traders with products from different parts of Serbia, as well as baggers with their smaller items. The importance of fairs was also confirmed by Vladimir Karić, who noted that in the 1880s there were a total of 373 fair days in Serbia. The trade eventually became so popular that people started noticing how <em>every devil had become a salesman</em>. But, until the eventual start of industrialization, it came down to resale and speculation, more or less. It was only with the acceleration of this process and the introduction of railroads that a market for consumer society was starting to emerge in Serbia.",
+      text: "Pilgrimage was also widely present among Serbian people during the 19th century. In a certain hierarchy, a visit to the Holy Land and Jerusalem represented the biggest accomplishment, followed by a visit to Mount Athos. For pilgrims with more modest ambitions and capabilities, destinations could have also been places like Studenica, Visoki Dečani, Patriarchate of Peć, Prohor Pčinjski, Ostrog, monasteries of the Fruška Gora Mountain, etc. In this period, literature promoting the pilgrim's journeys, like travel guides through the Holy Land and Mount Athos appeared, and by the end of the century, under the patronage of Russia and Greece, group tours for pilgrims were already starting to be organized. Serbian pilgrims mostly came from wealthier parts of society. It wasn't a rare occasion for rulers to go on such trips themselves, primarily to bow to the remains of Saint Stefan the First-Crowned in Studenica Monastery, which in time took on ideological, state, and national character.",
       circlePosition: { top: "100px", left: "18px" },
       paragraphPosition: "mt-175 ml-115 max-w-107",
       image: "/images/chapter-1/1.jpg",
+      quote: {
+        text: "<em>The king [Milan] entered together with the bishop inside the Angels' Chapel [in Jerusalem], where he prostrated himself and kissed the Holy Cross, and then, on his knees, he went to the Holy Grave to bow to the holiest of all places and the memory of our great teacher, Christ the Savior.<em>",
+        author:
+          "Mihailo Rašić, <em>With HRH King Milan in the East: Traveler’s Notes</em>, 1889.",
+      },
+    },
+    {
+      text: "The time one would decide to go on a pilgrimage was usually tied to major holidays or special events in a traveler's life. When a devotee would announce in front of the church door his intention to go, priests would invite other people of faith to join him or at least help collect the necessary funds for the journey. The trip itself was a true Christian accomplishment that required significant material and physical sacrifices. The travel was done on foot, riding a horse, or by boat. The longest and most dangerous path to the Holy Land led through Istanbul, Asia Minor, and Syria. A somewhat faster and easier route went from Thessaloniki or Dubrovnik to Alexandria, and from there on, the pilgrims went further to Jerusalem by land. Usually, a group of religious people would decide to participate in such an undertaking together, either by following caravans or going on their own. A question of safety always arose during such expeditions, since pilgrims were often targeted by pirates or bandits, who were aware that anyone who embarks on a journey like this must have plenty of money or other valuables on him. Still, the belief that all the challenges faced during a pilgrimage would bring the pilgrim closer to heaven ultimately had a major influence on their perseverance.",
+      circlePosition: { top: "100px", left: "18px" },
+      paragraphPosition: "mt-175 ml-115 max-w-107",
+      image: "/images/chapter-1/1.jpg",
+    },
+    {
+      text: "The arrival at the holy site presented the culmination of a pilgrim's journey. Newcomers were solemnly received by monks, followed by the sounds of church bells and celebratory gunfire. During their time in the Holy Land, travelers were staying in special residences for pilgrims, where their daily routine and diet closely resembled those of monks. Their spare time was spent on joint prayers, charity work, and visits to nearby holy places. Before returning home, pilgrims acquired various souvenirs, like graphics, special kinds of icons (the so-called <em>jerusalems</em>), prayer beads, candles, clods of Jerusalem land, olive branches, or water from the River Jordan, which they later gifted to friends and clergy or kept as reminders of their own achievements. Upon returning from the pilgrimage, the traveler was named <em>hadžija (hajji)</em>, and the prefix <em>Hadži</em> was added to his last name, which granted him a prominent status in the local community.",
+      circlePosition: { top: "100px", left: "18px" },
+      paragraphPosition: "mt-175 ml-115 max-w-107",
+      image: "/images/chapter-1/1.jpg",
+    },
+    {
+      text: "Like the religious zeal that, for centuries, inspired people of faith to travel, patriotism emerged as a motive for traveling in the 19th century. Similar to minor pilgrimages, these represented travels through local territory, often followed by travel literature, whose main goal was to get to know various places inhabited by certain nations. Such journeys contributed to the feeling of national and spatial cohesiveness because they solidified the bonds between communities that, until then, lived apart with very little mutual communication. These interactions intensified with the expansion of the transportation network, which created fertile soil for many intellectuals to work on the conceptual unification of national spaces. Such a process, highly prevalent in territorially compartmentalized regions like Germany and Italy, was also visible among the Serbian intelligentsia.",
+      circlePosition: { top: "100px", left: "18px" },
+      paragraphPosition: "mt-175 ml-115 max-w-107",
+      image: "/images/chapter-1/1.jpg",
+    },
+    {
+      text: "Much like Saint Sava, who in the early 13th century worked on the establishment of new eparchies with the desire to define the borders of the Serbian Orthodox Church's episcopal space after obtaining the autocephaly, intellectuals and national workers such as Vuk Stefanović Karadžić and Milan Đ. Milićević were <em>drawing the boundaries</em> of the Serbian national space and were keen to spread knowledge about it to future generations. Such forward-thinking endeavors carried a lot of weight because these were the foundations on which new generations would be brought up, to whom the results of their tireless work were intended. The desire to build stronger ties with the past led travelers toward the areas of Old Serbia. Travel literature was filled with powerful impressions about material remains of Serbia's medieval culture and art, monasteries, sites of great battles, and other significant events from the past. Upon liberation, such places became must-see destinations for student excursions, where youth went to be inspired by patriotism and to gain awareness about the history of their nation. ",
+      circlePosition: { top: "100px", left: "18px" },
+      paragraphPosition: "mt-175 ml-115 max-w-107",
+      image: "/images/chapter-1/1.jpg",
+      quote: {
+        text: "<em>It is well known that the Principality of Serbia is a fairly small country... and yet full of various natural treasures and beauty; it is known that our homeland, as big as it is, caused our grandfathers and fathers immense suffering and bloodshed, and yet it is also well known that we, in many ways, do not know this wonderful yet rich, small but hard-earned homeland as well as we should.<em>",
+        author:
+          "Milan Đ. Milićević, <em>The Principality of Serbia</em>, 1876.",
+      },
     },
   ],
 };
