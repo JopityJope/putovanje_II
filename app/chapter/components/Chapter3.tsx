@@ -184,27 +184,6 @@ function page() {
                 </div>
               )}
 
-              {page.image2 && (
-                <div
-                  className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image2.position} box-border`}
-                >
-                  <Image
-                    src={`/images/chapter-3/0${page.image2.name}.webp`}
-                    alt=""
-                    height={`${page.image2.height}`}
-                    width={`${page.image2.width}`}
-                    priority
-                    className="bg-[white] p-8 pb-30 box-border shadow-lg"
-                  />
-                  <p
-                    className="text-left text-base text-gray-600 -mt-28 px-9 "
-                    style={{ maxWidth: `${page.image2.width}px` }}
-                  >
-                    {page.image2.description}
-                  </p>
-                </div>
-              )}
-
               <ButtonAnimation index={index}>
                 <CarouselNext className={`${page.buttonNext}`}> </CarouselNext>
                 <CarouselPrevious
