@@ -36,68 +36,74 @@ function page() {
               key={index}
               index={index}
             >
+              {/* Linija */}
               <div className="absolute w-full h-screen bg-no-repeat bg-cover">
-                {/* <Image
-                  src={`/images/line/ch1_${index + 1}.png`}
+                <Image
+                  src={`/images/line/chapter1-0${index + 1}.png`}
                   alt=""
                   fill
                   priority
                   className="object-cover z-20"
-                /> */}
+                />
               </div>
-              <div className="absolute w-full h-screen bg-no-repeat bg-cover left-105 top-70">
-                <ButtonAnimation index={index}>
-                  {page.quote && (
-                    <div>
-                      <div className="relative">
-                        <Image
-                          src="/images/paper/paper-12.webp"
-                          alt=""
-                          className="rotate-7"
-                          width={520}
-                          height={130}
-                        />
 
-                        <div className="absolute inset-0 ml-28 flex flex-col justify-center max-w-80">
-                          <p className="italic text-sm text-[--crna] relative mt-4">
-                            <span className="text-sm align-top mr-1 leading-none">
-                              ❝
-                            </span>
-                            <span
-                              className=""
-                              dangerouslySetInnerHTML={{
-                                __html: page.quote.text,
-                              }}
-                            />
-                            <span className="text-sm align-top ml-1 leading-none">
-                              ❞
-                            </span>
-                          </p>
-                          <div className="flex items-center pb-2 gap-2 mt-3">
-                            <Image
-                              alt=""
-                              src={"/images/icons/feather.svg"}
-                              width={30}
-                              height={30}
-                              className=""
-                            ></Image>
-                            <p
-                              className="text-sm text-[--crna]"
-                              dangerouslySetInnerHTML={{
-                                __html: page.quote.author,
-                              }}
-                            />
-                          </div>
+              {/* Citati */}
+              {page.quote && (
+                <div
+                  className={`absolute w-full h-screen bg-no-repeat bg-cover ${page.quote.position}`}
+                >
+                  <>
+                    <div className="relative">
+                      <Image
+                        src={`/images/paper/paper-${page.quote.image}.webp`}
+                        alt=""
+                        className="rotate-5 opacity-70 "
+                        width={`${page.quote.width}`}
+                        height={130}
+                      />
+
+                      <div
+                        className={`absolute inset-0 ml-28 flex flex-col justify-center`}
+                        style={{ maxWidth: page.quote.maxw }}
+                      >
+                        <p className="italic text-sm text-[--crna] relative mt-2">
+                          <span className="text-sm align-top mr-1 leading-none">
+                            ❝
+                          </span>
+                          <span
+                            className=""
+                            dangerouslySetInnerHTML={{
+                              __html: page.quote.text,
+                            }}
+                          />
+                          <span className="text-sm align-top ml-1 leading-none">
+                            ❞
+                          </span>
+                        </p>
+                        <div className="flex items-center pb-2 gap-2 mt-3">
+                          <Image
+                            alt=""
+                            src={"/images/icons/feather.webp"}
+                            width={30}
+                            height={35.09}
+                            className=""
+                          ></Image>
+                          <p
+                            className="text-sm text-[--crna]"
+                            dangerouslySetInnerHTML={{
+                              __html: page.quote.author,
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
-                  )}
-                </ButtonAnimation>
-              </div>
-
+                  </>
+                </div>
+              )}
+              {/* Naslov i tekst */}
               <div className="absolute z-30 text-[--crna] rotate">
                 {index === 0 && (
-                  <ChapterAnimation index={index}>
+                  <>
                     <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
                       {toRoman(1)}
                     </span>
@@ -110,12 +116,14 @@ function page() {
                         </>
                       ) : (
                         <>
-                          <span className="ml-10">The people of </span>
-                          <span className="ml-18 mt-2"> flight and refuge</span>
+                          <span className="ml-10">On the sources of</span>
+                          <span className="ml-18 mt-2">
+                            faith and patriotism
+                          </span>
                         </>
                       )}
                     </h1>
-                  </ChapterAnimation>
+                  </>
                 )}
                 <div
                   className={`relative flex flex-col items-center text-lg text-justify ${page.paragraphPosition}`}
@@ -126,61 +134,75 @@ function page() {
                       dangerouslySetInnerHTML={{ __html: page.text }}
                     ></p>
                   </TextAnimation>
-                  <ButtonAnimation index={index}>
-                    <p className="mt-12 text-2xl">
-                      - {index + 1}/{chapter.pages.length} -
-                    </p>
-                  </ButtonAnimation>
                 </div>
               </div>
+              {/* Broj stranice */}
 
-              {/*  <div className="flex items-center justify-center absolute mt-290">
+              <p className={`absolute text-2xl z-30 ${page.pageNumber}`}>
+                - {index + 1}/{chapter.pages.length} -
+              </p>
+
+              {/* Slike */}
+
+              {page.image && (
+                <div
+                  className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image.position} box-border`}
+                >
                   <Image
-                     src={`/images/chapter-1/19/${index + 1}.png`} 
-                    src={`/images/chapter-1/20.webp`} 
-                    src={`/images/chapter-1/20.webp`}
+                    src={`/images/chapter-1/0${page.image.name}.webp`}
                     alt=""
-                    height={30}
-                    width={1080}
+                    height={`${page.image.height}`}
+                    width={`${page.image.width}`}
                     priority
-                    className=" opacity-30"
+                    className="bg-[white] p-8 pb-30 box-border shadow-lg"
                   />
-                </div> */}
+                  <p
+                    className="text-left text-base text-gray-600 -mt-28 px-9 "
+                    style={{ maxWidth: `${page.image.width}px` }}
+                  >
+                    {page.image.description}
+                  </p>
+                </div>
+              )}
 
               <ButtonAnimation index={index}>
-                <CarouselNext />
-                <CarouselPrevious />
-                {index === chapter.pages.length - 1 && (
-                  <>
-                    <div
-                      className={`absolute top-165 left-190 flex flex-col items-center cursor-pointer`}
-                      onClick={() => setActiveChapter(2)}
-                    >
-                      <span className="w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-[var(--crna)] text-[var(--papirbg)] text-xl font-bold">
-                        {toRoman(2)}
-                      </span>
+                <CarouselNext className={`${page.buttonNext}`}> </CarouselNext>
+                <CarouselPrevious
+                  className={`${page.buttonPrev}`}
+                ></CarouselPrevious>
+              </ButtonAnimation>
 
-                      <div className="relative flex flex-col items-center">
-                        <Image
-                          src={`/images/paper/paper-1.png`}
-                          alt={`Chapter ${index + 1}`}
-                          height={68.35}
-                          width={300}
-                          className="rounded"
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center text-lg text-center">
-                          <p
-                            className="!text-[var(--crna)] z-30 opacity-100 text-center break-words"
-                            style={{ maxWidth: 120 }}
-                          >
-                            {chapters[1][language]}
-                          </p>
-                        </div>
+              {/* Iduće poglavlje */}
+              {index === chapter.pages.length - 1 && (
+                <>
+                  <div
+                    className={`absolute top-340 left-190 flex flex-col items-center cursor-pointer z-30`}
+                    onClick={() => setActiveChapter(2)}
+                  >
+                    <span className="w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-[var(--crna)] text-[var(--papirbg)] text-xl font-bold">
+                      {toRoman(2)}
+                    </span>
+
+                    <div className="relative flex flex-col items-center">
+                      <Image
+                        src={`/images/paper/paper-1.png`}
+                        alt={`Chapter ${index + 1}`}
+                        height={68.35}
+                        width={300}
+                        className="rounded"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center text-lg text-center">
+                        <p
+                          className="!text-[var(--crna)] z-30 opacity-100 text-center break-words"
+                          style={{ maxWidth: 120 }}
+                        >
+                          {chapters[1][language]}
+                        </p>
                       </div>
                     </div>
-                  </>
-                )}
-              </ButtonAnimation>
+                  </div>
+                </>
+              )}
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -192,91 +214,3 @@ function page() {
 }
 
 export default page;
-
-/* <div className="flex gap-20 mt-310 ml-25 items-center justify-center absolute">
-                    <Image
-                      src="/images/chapter-1/04.webp"
-                      alt=""
-                      height={330}
-                      width={330}
-                      priority
-                      className="object-cover p-10 bg-white"
-                    />
-                    <Image
-                      src="/images/chapter-1/01.webp"
-                      alt=""
-                      width={450}
-                      height={330}
-                      priority
-                      className="object-cover p-10 bg-white"
-                    />
-                  </div> */
-
-/*   <CarouselItem className="h-full w-full relative" index={0}>
-            <div className="absolute w-full h-screen  bg-no-repeat bg-cover">
-              <Image
-                src="/images/line/ch1_1.png"
-                alt=""
-                fill
-                priority
-                className="object-cover z-20"
-              />
-            </div>
-            <CarouselInnerAnimation index={0}>
-              <div className="z-30 text-(--crna)">
-                <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
-                  {toRoman(1)}
-                </span>
-
-                <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl mt-85 ml-20">
-                  {language === "sr" ? (
-                    <>
-                      <span className="ml-10">Народ збега</span>
-                      <span className="ml-18">и сеоба</span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="ml-10">The people of </span>
-                      <span className="ml-18"> flight and refuge</span>
-                    </>
-                  )}
-                </h1>
-                <p className="absolute mt-175 ml-115 max-w-107 text- text-center text-lg">
-                  {chapter.pages[0].text}
-                </p>
-                <div className="flex gap-20 mt-310 ml-25 items-center justify-center absolute">
-                  <Image
-                    src="/images/chapter-1/04.webp"
-                    alt=""
-                    height={330}
-                    width={330}
-                    priority
-                    className="object-cover p-10 bg-[white]"
-                  />
-                  <Image
-                    src="/images/chapter-1/01.webp"
-                    alt=""
-                    width={450}
-                    height={330}
-                    priority
-                    className="object-cover p-10 bg-[white]"
-                  />
-                </div>
-              </div>
-            </CarouselInnerAnimation>
-          </CarouselItem> */
-
-/* <Button
-      data-slot="carousel-next"
-      variant={variant}
-      size={size}
-      className={cn(
-        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-10 z-30",
-        orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
-        className
-      )}
-      onClick={scrollNext}
-      {...props}
-    >
-      <span>&#10095;</span>
-    </Button> */

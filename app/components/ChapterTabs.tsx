@@ -8,14 +8,14 @@ function ChapterTabs() {
   const { language } = useLanguage();
   const { activeChapter, setActiveChapter } = useChapter();
   return (
-    <div className="flex gap-20 pl-20 -translate-y-18">
+    <div className="flex gap-21 pl-20 -translate-y-25">
       {chapters.map((chapter) => {
         const isActive = chapter.id === activeChapter;
 
         return (
           <div
             key={chapter.id}
-            className="flex flex-col items-center text-sm"
+            className="flex flex-col items-center text-base"
             onClick={() => setActiveChapter(chapter.id)}
           >
             <button
@@ -32,7 +32,7 @@ function ChapterTabs() {
                 isActive ? "text-(--imscrvena)" : "text-(--crna)"
               } top-[47] ${
                 chapter.maxWidth || "max-w-15"
-              } text-center text-xs leading-3.7 transition-colors duration-300 ease-in-out`}
+              } text-center text-sm leading-3.7 transition-colors duration-300 ease-in-out`}
             >
               {chapter[language]}
             </p>

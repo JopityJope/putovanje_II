@@ -32,7 +32,7 @@ export default function Home() {
             <CarouselItem className="h-full w-full relative" index={0}>
               <div className="absolute w-full h-screen">
                 <Image
-                  src="/images/line/main-01.webp"
+                  src="/images/line/main-01.png"
                   alt=""
                   fill
                   priority

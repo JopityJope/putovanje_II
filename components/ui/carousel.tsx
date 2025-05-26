@@ -396,7 +396,7 @@ const ButtonAnimation = ({
           key={`current-${index}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.7, duration: 0.4 }}
+          transition={{ delay: 2.3, duration: 0.2 }}
           className=""
         >
           {children}
@@ -423,7 +423,6 @@ function CarouselPrevious({
       size={size}
       className={cn(
         "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-248.5 z-30",
-        orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
         className
       )}
       onClick={scrollPrev}
@@ -451,8 +450,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-10 z-30",
-        orientation === "horizontal" ? "top-50 right-0 -translate-y-1/2" : "",
+        "absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--crna) text-(--papir) text-xl font-bold mt-200 mr-10 z-30 ",
         className
       )}
       onClick={scrollNext}

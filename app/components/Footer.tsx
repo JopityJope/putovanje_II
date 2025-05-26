@@ -6,7 +6,7 @@ export default function Footer({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="absolute top-445 right-0  pr-11.5 z-30 flex flex-row gap-4 -translate-y-6">
+    <div className="absolute top-470.5 right-0  pr-11.5 z-30 flex flex-row gap-4 -translate-y-13">
       {children}
     </div>
   );
