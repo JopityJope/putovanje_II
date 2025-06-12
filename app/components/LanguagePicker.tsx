@@ -46,13 +46,14 @@ export default function LanguagePicker({
   if (!isMounted) return null;
 
   return (
-    <div className="relative ml-201 mt-226 z-20">
+    <div className="relative ml-196 mt-221 z-20">
       <Image
         src="/images/icons/compass.png"
         alt="Background Image"
-        height={55}
-        width={55}
-        className="needle cursor-pointer"
+        height={95}
+        width={95}
+        className="needle cursor-pointer p-5 
+        "
         onClick={toggleLanguages}
       />
 

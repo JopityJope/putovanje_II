@@ -9,6 +9,7 @@ import {
   TextAnimation,
   ButtonAnimation,
   ChapterAnimation,
+  PhotoAnimation,
 } from "@/components/ui/carousel";
 import { chapters } from "@/app/data/chapters";
 import { useChapter } from "@/app/context/ChapterContext";
@@ -24,7 +25,13 @@ function page() {
   const { setActiveChapter } = useChapter();
 
   return (
-    <main className="h-screen w-screen overflow-hidden">
+    <main
+      className="relative h-screen w-screen overflow-hidden
+  before:content-[''] before:absolute before:inset-0
+  before:bg-[url('/images/background/05.webp')]
+  before:bg-cover before:bg-center
+  before:opacity-10"
+    >
       <Carousel
         className="h-full w-full relative"
         opts={{ align: "center", watchDrag: true, duration: 45 }}
@@ -48,67 +55,69 @@ function page() {
               </div>
 
               {/* Citati */}
-              {page.quote && (
-                <div
-                  className={`absolute w-full h-screen bg-no-repeat bg-cover ${page.quote.position}`}
-                >
-                  <>
-                    <div className="relative">
-                      <Image
-                        src={`/images/paper/paper-${page.quote.image}.webp`}
-                        alt=""
-                        className="rotate-5 opacity-70"
-                        width={`${page.quote.width}`}
-                        height={130}
-                      />
+              <PhotoAnimation index={index}>
+                {page.quote && (
+                  <div
+                    className={`absolute w-full h-screen bg-no-repeat bg-cover ${page.quote.position}`}
+                  >
+                    <>
+                      <div className="relative">
+                        <Image
+                          src={`/images/paper/paper-${page.quote.image}.webp`}
+                          alt=""
+                          className="rotate-5 opacity-70"
+                          width={`${page.quote.width}`}
+                          height={130}
+                        />
 
-                      <div
-                        className={`absolute inset-0 ml-28 flex flex-col justify-center`}
-                        style={{ maxWidth: page.quote.maxw }}
-                      >
-                        <p className="italic text-sm text-[--crna] relative mt-2">
-                          <span className="text-sm align-top mr-1 leading-none">
-                            ❝
-                          </span>
-                          <span
-                            className=""
-                            dangerouslySetInnerHTML={{
-                              __html: page.quote.text,
-                            }}
-                          />
-                          <span className="text-sm align-top ml-1 leading-none">
-                            ❞
-                          </span>
-                        </p>
-                        <div className="flex items-center pb-2 gap-2 mt-3">
-                          <Image
-                            alt=""
-                            src={"/images/icons/feather.webp"}
-                            width={30}
-                            height={35.09}
-                            className=""
-                          ></Image>
-                          <p
-                            className="text-sm text-[--crna]"
-                            dangerouslySetInnerHTML={{
-                              __html: page.quote.author,
-                            }}
-                          />
+                        <div
+                          className={`absolute inset-0 ml-28 flex flex-col justify-center`}
+                          style={{ maxWidth: page.quote.maxw }}
+                        >
+                          <p className="italic text-sm text-[--crna] relative mt-2">
+                            <span className="text-sm align-top mr-1 leading-none">
+                              ❝
+                            </span>
+                            <span
+                              className=""
+                              dangerouslySetInnerHTML={{
+                                __html: page.quote.text,
+                              }}
+                            />
+                            <span className="text-sm align-top ml-1 leading-none">
+                              ❞
+                            </span>
+                          </p>
+                          <div className="flex items-center pb-2 gap-2 mt-3">
+                            <Image
+                              alt=""
+                              src={"/images/icons/feather.webp"}
+                              width={30}
+                              height={35.09}
+                              className=""
+                            ></Image>
+                            <p
+                              className="text-sm text-[--crna]"
+                              dangerouslySetInnerHTML={{
+                                __html: page.quote.author,
+                              }}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </>
-                </div>
-              )}
+                    </>
+                  </div>
+                )}
+              </PhotoAnimation>
               {/* Naslov i tekst */}
               <div className="absolute z-30 text-[--crna] rotate">
                 {index === 0 && (
                   <>
-                    <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold top-90 ml-18 z-30">
+                    <span className="absolute w-12 h-12 flex items-center justify-center rounded-full pt-1 bg-(--imscrvena) text-(--papir) text-xl font-bold mt-100 ml-18 z-30">
                       {toRoman(2)}
                     </span>
 
-                    <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl top-76 ml-20">
+                    <h1 className="absolute flex flex-col text-(--imscrvena) text-5xl mt-85 ml-20">
                       {language === "sr" ? (
                         <>
                           <span className="ml-10">У потрази за</span>
@@ -141,67 +150,69 @@ function page() {
               </p>
 
               {/* Slike */}
-
-              {page.image && (
-                <div
-                  className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image.position} box-border`}
-                >
-                  <Image
-                    src={`/images/chapter-2/0${page.image.name}.webp`}
-                    alt=""
-                    height={`${page.image.height}`}
-                    width={`${page.image.width}`}
-                    priority
-                    className="bg-[white] p-8 pb-30 box-border shadow-lg"
-                  />
-                  <p
-                    className="text-left text-base text-gray-600 -mt-28 px-9"
-                    style={{ maxWidth: `${page.image.width}px` }}
+              <PhotoAnimation index={index}>
+                {page.image && (
+                  <div
+                    className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image.position} box-border`}
                   >
-                    {page.image.description}
-                  </p>
-                </div>
-              )}
-
+                    <Image
+                      src={`/images/chapter-2/0${page.image.name}.webp`}
+                      alt=""
+                      height={`${page.image.height}`}
+                      width={`${page.image.width}`}
+                      priority
+                      className="bg-[white] p-8 pb-30 box-border shadow-lg"
+                    />
+                    <p
+                      className="text-left text-base text-gray-600 -mt-28 px-9"
+                      style={{ maxWidth: `${page.image.width}px` }}
+                    >
+                      {page.image.description}
+                    </p>
+                  </div>
+                )}
+              </PhotoAnimation>
               {/* Video */}
-
-              {page.video && (
-                <div
-                  className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.video.position} box-border`}
-                >
-                  <video
-                    src="/video/1.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto rounded-lg"
+              <PhotoAnimation index={index}>
+                {page.video && (
+                  <div
+                    className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.video.position} box-border`}
                   >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              )}
-
-              {page.image2 && (
-                <div
-                  className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image2.position} box-border`}
-                >
-                  <Image
-                    src={`/images/chapter-2/0${page.image2.name}.webp`}
-                    alt=""
-                    height={`${page.image2.height}`}
-                    width={`${page.image2.width}`}
-                    priority
-                    className="bg-[white] p-8 pb-30 box-border shadow-lg"
-                  />
-                  <p
-                    className="text-left text-base text-gray-600 -mt-28 px-9 "
-                    style={{ maxWidth: `${page.image2.width}px` }}
+                    <video
+                      src="/video/1.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-auto rounded-lg"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
+              </PhotoAnimation>
+              <PhotoAnimation index={index}>
+                {page.image2 && (
+                  <div
+                    className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image2.position} box-border`}
                   >
-                    {page.image2.description}
-                  </p>
-                </div>
-              )}
+                    <Image
+                      src={`/images/chapter-2/0${page.image2.name}.webp`}
+                      alt=""
+                      height={`${page.image2.height}`}
+                      width={`${page.image2.width}`}
+                      priority
+                      className="bg-[white] p-8 pb-30 box-border shadow-lg"
+                    />
+                    <p
+                      className="text-left text-base text-gray-600 -mt-28 px-9 "
+                      style={{ maxWidth: `${page.image2.width}px` }}
+                    >
+                      {page.image2.description}
+                    </p>
+                  </div>
+                )}
+              </PhotoAnimation>
 
               <ButtonAnimation index={index}>
                 <CarouselNext className={`${page.buttonNext}`}> </CarouselNext>

@@ -3,14 +3,14 @@ export const chapter3en = {
   pages: [
     {
       text: "With rare merchants, the most mobile part of Serbian society during the period of Ottoman rule were monks and pilgrims. A difficult financial predicament the Serbian Orthodox Church found itself in demanded many monks to spend months and years roaming across the Balkan Peninsula, as well as Wallachia, Moldova, and Russia, to collect financial aid and establish ties with fellow Orthodox nations. Religious feelings have also been a strong incentive for the movement of regular people who, on major holidays, went to the nearby monasteries to attend a holy service. Holly places, such as churches, monasteries, and the ruins of old temples or tombs, played an important role in the life and traditions of the Serbian people. People also went there in times of illness or danger because it was believed that the presence of holy relics kept in those places could provide healing and protection.",
-      buttonNext: "top-152 right-0 -translate-y-1/2",
-      paragraphPosition: "mt-150 ml-123 max-w-107",
-      pageNumber: "left-135 top-299",
+      buttonNext: "top-184 right-0 -translate-y-1/2",
+      paragraphPosition: "mt-205 ml-123 max-w-115",
+      pageNumber: "left-149 top-339",
       quote: {
         text: "<em>Peasants do not have faith in doctors. When a family member is severely ill, they put him on a horse and take him to the closest monastery, where he is read prayers for healing […] I have often seen such sad scenes, a tormented sick person mounted on a horse, whose movement caused him even more suffering.<em>",
         author:
           "Otto Dubislav von Pirch, <em>Reise in Serbien im Spätherbst 1829</em>",
-        position: "left-70 top-310",
+        position: "ml-110 top-100",
         image: "12",
         width: 610,
         height: 339,
@@ -21,14 +21,14 @@ export const chapter3en = {
       text: "Much like the monks, pilgrims were also inspired to go on a journey by a deep sense of religious devotion, although the goals of their trips were primarily of a personal nature. A pilgrimage is a trip to a distant holy place normally not visited during a regular liturgical cycle. This form of travel was an act of active piety, and its goal was the salvation of the soul through a stay in places connected to the lives of Christ, the Virgin Mary, and the saints. Pilgrimage was also common among nations of different religions. This tradition has been present among Serbian people for centuries and can be traced back to Saint Sava, who was most likely the first among Serbs to &quot;bow down to the lifesaving and life-giving tomb of our Lord Christ,&quot; as was written by his hagiographers Domentijan and Theodosius.",
       paragraphPosition: "mt-170 ml-35 max-w-90",
       buttonNext: "top-112 right-0 -translate-y-1/2",
-      buttonPrev: "top-155 right-0 -translate-y-1/2",
-      pageNumber: "left-75 top-324.5",
+      buttonPrev: "top-165 right-0 -translate-y-1/2",
+      pageNumber: "left-73 top-323",
       image: {
         name: "3",
         position: "mt-135 ml-155 rotate-2",
         width: 320,
         height: 575,
-        description: "A Passport of the voivoda Janko Popović, 1831",
+        description: "Church of the Holy Sepulchre, а postcard",
       },
     },
     {
@@ -36,12 +36,12 @@ export const chapter3en = {
       buttonNext: "top-163 right-0 -translate-y-1/2",
       buttonPrev: "top-99 right-0 -translate-y-1/2",
       paragraphPosition: "mt-190 ml-130 max-w-110",
-      pageNumber: "left-195 top-334.5",
+      pageNumber: "left-195 top-334",
       quote: {
         text: "<em>The king [Milan] entered together with the bishop inside the Angels' Chapel [in Jerusalem], where he prostrated himself and kissed the Holy Cross, and then, on his knees, he went to the Holy Grave to bow to the holiest of all places and the memory of our great teacher, Christ the Savior.<em>",
         author:
           "Mihailo Rašić, <em>With HRH King Milan in the East: Traveler’s Notes</em>, 1889.",
-        position: "left-35 top-105",
+        position: "left-35 top-103",
         image: "13",
         width: 610,
         height: 339,
@@ -72,7 +72,7 @@ export const chapter3en = {
         position: "mt-270 ml-55 -rotate-2",
         width: 550,
         height: 575,
-        description: "A Passport of the voivoda Janko Popović, 1831",
+        description: "Hajji Icon, 1901",
       },
     },
     {
@@ -80,13 +80,14 @@ export const chapter3en = {
       buttonNext: "top-129 right-0 -translate-y-1/2",
       buttonPrev: "top-81 right-0 -translate-y-1/2",
       paragraphPosition: "mt-140 ml-60 max-w-150",
-      pageNumber: "left-115 top-248",
+      pageNumber: "left-116 top-248",
       image: {
         name: "1",
-        position: "mt-290 ml-50 rotate-2",
+        position: "mt-290 ml-52 rotate-2",
         width: 490,
         height: 575,
-        description: "A Passport of the voivoda Janko Popović, 1831",
+        description:
+          "King Milan Obrenović with his Entourage and Travel Companions on a Ship on the Way to Jerusalem, photo, 1889",
       },
     },
     {

@@ -16,7 +16,7 @@ export default function FooterChapters() {
       />
       <div className="absolute w-screen flex z-30 justify-between items-start   ">
         <ChapterTabs />
-        <div className="z-30 flex gap-4 pb-5 pr-11.5 -translate-y-13">
+        <div className="z-30 flex gap-4 pb-5 pr-11.5 -translate-y-25">
           <HomeButton />
           <ToggleLangaugeButton />
         </div>

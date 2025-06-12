@@ -3,30 +3,15 @@ export const chapter2en = {
   pages: [
     {
       text: "Older than cities and states, trade has been present since the very beginning of human history and, by its nature, it required the movement of goods, people, and money. Trade hasn't changed its essence to the present day – people were selling goods they had surpluses of and buying those they were lacking. Its main protagonist, the merchant, could have been encountered on every road, in every tavern or port, regardless of the era. Their motives for leaving home, in contrast to most people, weren't conditioned by trying to escape wars or diseases, but rather by lucrative business opportunities. That journey, though filled with dangers, brought success, profits, and prestige. In direct connection with profit-making were the advancements in road infrastructure and the means of transportation, so wealthy merchants increasingly acted as benefactors of road maintenance, the construction of bridges, and shipbuilding.",
-      buttonNext: "top-50 right-0 -translate-y-1/2",
-      paragraphPosition: "mt-120 ml-110 max-w-130",
-      pageNumber: "left-135 top-240",
-
-      image: {
-        name: "1",
-        position: "mt-285 ml-25 -rotate-2",
-        description: "Феликс Каниц, Смедерево, пристаниште на Дунаву",
-        width: 430,
-        height: 560,
-      },
-      image2: {
-        name: "2",
-        position: "mt-290 ml-133 rotate-3",
-        description: "Феликс Каниц, Смедерево, пијаца",
-        width: 440,
-        height: 560,
-      },
+      buttonNext: "top-115 right-0 -translate-y-1/2",
+      paragraphPosition: "mt-130 ml-115 max-w-115",
+      pageNumber: "left-160 top-280",
     },
     {
       text: "In medieval Serbia, trade was quite extensive. It was best encapsulated by endless caravans of horses and oxen, loaded with goods, slowly moving along dusty roads. Trade links spread across the country, connecting it with coastal cities, with marketplaces popping up at the intersections of roads or close to monasteries and towns. Merchants and their products were protected by law, and trade itself was guaranteed by rulers' charters and contracts. The appearance of the Ottomans brought an end to a long tradition of Serbian commerce, so trade moved into the hands of Turks, Aromanians, Jews, and Vlachs, with a few rare examples of Serbian merchants.",
       buttonNext: "top-57 right-0 -translate-y-1/2",
-      buttonPrev: "top-59.5 right-0 -translate-y-1/2",
-      paragraphPosition: "mt-120 ml-50 max-w-120",
+      buttonPrev: "top-90 right-0 -translate-y-1/2",
+      paragraphPosition: "mt-125 ml-50 max-w-120",
       pageNumber: "left-102 top-217",
       video: {
         name: 1,
@@ -40,8 +25,23 @@ export const chapter2en = {
       buttonNext: "top-63.5 right-0 -translate-y-1/2",
       buttonPrev: "top-30 right-0 -translate-y-1/2",
       paragraphPosition: "mt-90 ml-80 max-w-150",
-      pageNumber: "left-132 top-205",
+      pageNumber: "left-132 top-204",
       image: {
+        name: "1",
+        position: "mt-285 ml-25 -rotate-2",
+        description: "Felix Kanitz, Smederevo, a Dock on the Danube River",
+        width: 430,
+        height: 560,
+      },
+      image2: {
+        name: "2",
+        position: "mt-290 ml-133 rotate-3",
+        description: "Felix Kanitz, Smederevo, Market",
+        width: 440,
+        height: 560,
+      },
+
+      /* image: {
         name: "4",
         position: "mt-285 ml-30 -rotate-2",
         description: "Felix Kanitz, Smederevo, a Dock on the Danube River",
@@ -54,7 +54,7 @@ export const chapter2en = {
         description: "Felix Kanitz, Smederevo, Market Square",
         width: 420,
         height: 560,
-      },
+      }, */
     },
     {
       text: "With the establishment of the autonomous principality in the first half of the 19th century, trade in Serbia fell into the hands of a few prominent people, who, thanks to their ties with Austria and Russia, played a key role in organizing and financing of Serbia's independence struggle. Throughout the century, the Sava and Danube Rivers were used as vital trading routes towards Austria, Wallachia, and the Black Sea, whereas rafts filled with seasonal agricultural products were sent downstream by the Drina River. Land trade was still carried out by caravans, like in previous centuries. A merchant would hire skilled workers (<em>kiridžije</em> and <em>rabadžije</em>) for the transportation needs, who would form the caravan and be responsible for its safety, loading of horses and oxen, direction of travel, selecting places where they would rest along the way, etc.",
@@ -77,11 +77,11 @@ export const chapter2en = {
       buttonNext: "top-63.5 right-0 -translate-y-1/2",
       buttonPrev: "top-178 right-0 -translate-y-1/2",
       paragraphPosition: "mt-105 ml-80 max-w-145",
-      pageNumber: "left-157.5 top-234",
+      pageNumber: "left-157.5 top-233",
       image: {
         name: "3",
         position: "mt-280 ml-145 rotate-3",
-        description: "Феликс Каниц, Смедерево, пристаниште на Дунаву",
+        description: "Vladislav Titelbah, A Market Day",
         width: 430,
         height: 560,
       },
@@ -94,7 +94,7 @@ export const chapter2en = {
       image: {
         name: "7",
         position: "mt-285 ml-25 -rotate-2",
-        description: "Феликс Каниц, Смедерево, пристаниште на Дунаву",
+        description: "Market day in Kraljevo - postcard",
         width: 430,
         height: 560,
       },

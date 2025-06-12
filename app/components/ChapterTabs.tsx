@@ -8,7 +8,7 @@ function ChapterTabs() {
   const { language } = useLanguage();
   const { activeChapter, setActiveChapter } = useChapter();
   return (
-    <div className="flex gap-21 pl-20 -translate-y-25">
+    <div className="flex gap-21 pl-20 -translate-y-30">
       {chapters.map((chapter) => {
         const isActive = chapter.id === activeChapter;
 
@@ -19,7 +19,7 @@ function ChapterTabs() {
             onClick={() => setActiveChapter(chapter.id)}
           >
             <button
-              className={`w-9 h-9 ${
+              className={`w-10 h-10 run dev ${
                 isActive ? "bg-(--imscrvena)" : "bg-(--crna)"
               } rounded-full z-20 cursor-pointer flex items-center justify-center text-(--papirbg) font-bold transition-all duration-300 ease-in-out transform ${
                 chapter.id === 4 ? "leading-3.7" : ""

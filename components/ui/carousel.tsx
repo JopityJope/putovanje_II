@@ -351,6 +351,61 @@ const TextAnimation = ({
   );
 };
 
+const PhotoAnimation = ({
+  index,
+  children,
+}: {
+  index: number;
+  children: React.ReactNode;
+}) => {
+  const { selectedIndex, prevIndex } = useCarousel();
+
+  const isCurrent = selectedIndex === index;
+  const isPrevious = prevIndex === index;
+  const isFirstLoad = prevIndex === null && selectedIndex === 0;
+
+  return (
+    <>
+      {isPrevious && (
+        <motion.div
+          key={`prev-${index}`}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className=""
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {isFirstLoad && isCurrent && (
+        <motion.div
+          key={`first-load-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className=""
+        >
+          {children}
+        </motion.div>
+      )}
+
+      {!isFirstLoad && isCurrent && (
+        <motion.div
+          key={`current-${index}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6, duration: 0.3 }}
+          className=""
+        >
+          {children}
+        </motion.div>
+      )}
+    </>
+  );
+};
+
 const ButtonAnimation = ({
   index,
   children,
@@ -396,7 +451,7 @@ const ButtonAnimation = ({
           key={`current-${index}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.3, duration: 0.2 }}
+          transition={{ delay: 2.5, duration: 0.2 }}
           className=""
         >
           {children}
@@ -428,7 +483,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <span>&#10094;</span>
+      <span className="p-12 rounded-full">&#10094;</span>
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -456,7 +511,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <span>&#10095;</span>
+      <span className="p-12 rounded-full">&#10095;</span>
     </Button>
   );
 }
@@ -527,9 +582,9 @@ function CarouselPreviousHome({
   return (
     <button
       onClick={scrollPrev}
-      className="w-12 h-12 bg-(--crna) rounded-full z-20 cursor-pointer flex items-center justify-center"
+      className="w-14 h-14 bg-(--crna) rounded-full z-20 cursor-pointer flex items-center justify-center"
     >
-      <Image src="/images/icons/home.png" alt="Home" width={20} height={20} />
+      <Image src="/images/icons/home.png" alt="Home" width={25} height={25} />
     </button>
   );
 }
@@ -547,4 +602,5 @@ export {
   ButtonAnimation,
   ChapterAnimation,
   TextAnimation,
+  PhotoAnimation,
 };

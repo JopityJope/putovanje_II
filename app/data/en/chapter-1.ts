@@ -42,8 +42,8 @@ export const chapter1en = {
       buttonPrev: "top-178 right-0 -translate-y-1/2",
       paragraphPosition: "mt-90 ml-80 max-w-150",
       quote: {
-        text: "<em>Шуме су биле градови оцевима нашим; ми те градове затрсмо, нове не садимо, па не знам шта ће рећи деца наша.</em>",
-        author: "Милан Ђ. Милићевић, <em>Кнежевина Србија</em>, 1876.",
+        text: "<em>Forests were towns of our predecessors; we have obliterated those towns without planting new ones, so I am worried that our children will resent us for that.</em>",
+        author: "Milan Đ. Milićević, <em>The Principality of Serbia</em>, 1876",
         position: "left-110 top-275",
         image: "12",
         width: 520,
@@ -60,7 +60,7 @@ export const chapter1en = {
         text: "…the sparseness of the Serbian people... is increasing day after day; the circumstances in which a man doesn't feel safe in his own home, where he has no one to lean on; where he has no one to support him nor someone to endure the unbearable hardships with;... the Serbs in Kosovo feel more and more isolated and abandoned with each passing day.",
         author:
           "Branislav Nušić, Kosovo – The Description of Land and People, 1902.",
-        position: "left-30 top-70",
+        position: "left-30 top-80",
         image: "13",
         width: 610,
         maxw: 400,

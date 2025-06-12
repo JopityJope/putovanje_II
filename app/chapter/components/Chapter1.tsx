@@ -9,6 +9,7 @@ import {
   TextAnimation,
   ButtonAnimation,
   ChapterAnimation,
+  PhotoAnimation,
 } from "@/components/ui/carousel";
 import { chapters } from "@/app/data/chapters";
 import { useChapter } from "@/app/context/ChapterContext";
@@ -24,7 +25,13 @@ function page() {
   const { setActiveChapter } = useChapter();
 
   return (
-    <main className="h-screen w-screen overflow-hidden">
+    <main
+      className="relative h-screen w-screen overflow-hidden
+  before:content-[''] before:absolute before:inset-0
+  before:bg-[url('/images/background/18.webp')]
+  before:bg-cover before:bg-center
+  before:opacity-15"
+    >
       <Carousel
         className="h-full w-full relative"
         opts={{ align: "center", watchDrag: true, duration: 45 }}
@@ -48,58 +55,60 @@ function page() {
               </div>
 
               {/* Citati */}
-              {page.quote && (
-                <div
-                  className={`absolute w-full h-screen bg-no-repeat bg-cover ${page.quote.position}`}
-                >
-                  <>
-                    <div className="relative">
-                      <Image
-                        src={`/images/paper/paper-${page.quote.image}.webp`}
-                        alt=""
-                        className="rotate-5 opacity-70 "
-                        width={`${page.quote.width}`}
-                        height={130}
-                      />
+              <PhotoAnimation index={index}>
+                {page.quote && (
+                  <div
+                    className={`absolute w-full h-screen bg-no-repeat bg-cover ${page.quote.position}`}
+                  >
+                    <>
+                      <div className="relative">
+                        <Image
+                          src={`/images/paper/paper-${page.quote.image}.webp`}
+                          alt=""
+                          className="rotate-5 opacity-70 "
+                          width={`${page.quote.width}`}
+                          height={130}
+                        />
 
-                      <div
-                        className={`absolute inset-0 ml-28 flex flex-col justify-center`}
-                        style={{ maxWidth: page.quote.maxw }}
-                      >
-                        <p className="italic text-sm text-[--crna] relative mt-2">
-                          <span className="text-sm align-top mr-1 leading-none">
-                            ❝
-                          </span>
-                          <span
-                            className=""
-                            dangerouslySetInnerHTML={{
-                              __html: page.quote.text,
-                            }}
-                          />
-                          <span className="text-sm align-top ml-1 leading-none">
-                            ❞
-                          </span>
-                        </p>
-                        <div className="flex items-center pb-2 gap-2 mt-3">
-                          <Image
-                            alt=""
-                            src={"/images/icons/feather.webp"}
-                            width={30}
-                            height={35.09}
-                            className=""
-                          ></Image>
-                          <p
-                            className="text-sm text-[--crna]"
-                            dangerouslySetInnerHTML={{
-                              __html: page.quote.author,
-                            }}
-                          />
+                        <div
+                          className={`absolute inset-0 ml-28 flex flex-col justify-center`}
+                          style={{ maxWidth: page.quote.maxw }}
+                        >
+                          <p className="italic text-sm text-[--crna] relative mt-2">
+                            <span className="text-sm align-top mr-1 leading-none">
+                              ❝
+                            </span>
+                            <span
+                              className=""
+                              dangerouslySetInnerHTML={{
+                                __html: page.quote.text,
+                              }}
+                            />
+                            <span className="text-sm align-top ml-1 leading-none">
+                              ❞
+                            </span>
+                          </p>
+                          <div className="flex items-center pb-2 gap-2 mt-3">
+                            <Image
+                              alt=""
+                              src={"/images/icons/feather.webp"}
+                              width={30}
+                              height={35.09}
+                              className=""
+                            ></Image>
+                            <p
+                              className="text-sm text-[--crna]"
+                              dangerouslySetInnerHTML={{
+                                __html: page.quote.author,
+                              }}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </>
-                </div>
-              )}
+                    </>
+                  </div>
+                )}
+              </PhotoAnimation>
               {/* Naslov i tekst */}
               <div className="absolute z-30 text-[--crna] rotate">
                 {index === 0 && (
@@ -143,27 +152,28 @@ function page() {
               </p>
 
               {/* Slike */}
-
-              {page.image && (
-                <div
-                  className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image.position} box-border`}
-                >
-                  <Image
-                    src={`/images/chapter-1/0${page.image.name}.webp`}
-                    alt=""
-                    height={`${page.image.height}`}
-                    width={`${page.image.width}`}
-                    priority
-                    className="bg-[white] p-8 pb-30 box-border shadow-lg"
-                  />
-                  <p
-                    className="text-left text-base text-gray-600 -mt-28 px-9 "
-                    style={{ maxWidth: `${page.image.width}px` }}
+              <PhotoAnimation index={index}>
+                {page.image && (
+                  <div
+                    className={`flex flex-col items-center justify-center absolute z-30 gap-4 ${page.image.position} box-border`}
                   >
-                    {page.image.description}
-                  </p>
-                </div>
-              )}
+                    <Image
+                      src={`/images/chapter-1/0${page.image.name}.webp`}
+                      alt=""
+                      height={`${page.image.height}`}
+                      width={`${page.image.width}`}
+                      priority
+                      className="bg-[white] p-8 pb-30 box-border shadow-lg"
+                    />
+                    <p
+                      className="text-left text-base text-gray-600 -mt-28 px-9 "
+                      style={{ maxWidth: `${page.image.width}px` }}
+                    >
+                      {page.image.description}
+                    </p>
+                  </div>
+                )}
+              </PhotoAnimation>
 
               <ButtonAnimation index={index}>
                 <CarouselNext className={`${page.buttonNext}`}> </CarouselNext>

@@ -10,7 +10,7 @@ export default function ToggleLangaugeButton() {
   return (
     <button
       onClick={toggleLanguage}
-      className="w-12 h-12 pt-1 bg-(--crna) rounded-full z-20 cursor-pointer flex items-center justify-center text-(--papirbg) text-xl font-bold"
+      className="w-14 h-14 pt-1 bg-(--crna) rounded-full z-20 cursor-pointer flex items-center justify-center text-(--papirbg) text-xl font-bold"
     >
       {language === "en" ? "СР" : "EN"}
     </button>
