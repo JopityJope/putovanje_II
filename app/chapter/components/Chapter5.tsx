@@ -181,8 +181,8 @@ function page() {
                       ) : (
                         <>
                           <span className="ml-10">Seeking </span>
-                          <span className="ml-18 mt-2">amusement</span>
-                          <span className="ml-12 mt-2"> or adventure</span>
+                          <span className="ml-18 mt-2">Amusement</span>
+                          <span className="ml-12 mt-2"> or Adventure</span>
                         </>
                       )}
                     </h1>

@@ -55,7 +55,7 @@ export default function Home() {
                     className={`ml-16 text-(--crna) text-[55px] mt-4
 tracking-wide text-(--imscrvena) select-none`}
                   >
-                    Serbs on the move 
+                    Serbs on the Move 
                   </h2>
                 </div>
               </CarouselInnerAnimation>

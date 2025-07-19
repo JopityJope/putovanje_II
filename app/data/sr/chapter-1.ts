@@ -15,7 +15,7 @@ export const chapter1sr = {
       image: {
         name: "5",
         position: "mt-150 ml-170 -rotate-2",
-        description: "Пасош Младена Миловановића у форми писма, 1814",
+        description: "Пасош Младена Миловановића у форми писма, 1814.",
         width: 320,
         height: 560,
       },
@@ -29,7 +29,7 @@ export const chapter1sr = {
       image: {
         name: "7",
         position: "mt-135 ml-28 rotate-2",
-        description: "Пасош војводе Јанка Поповића, 1831",
+        description: "Пасош војводе Јанка Поповића, 1831.",
         width: 320,
         height: 560,
       },

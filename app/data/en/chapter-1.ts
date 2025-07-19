@@ -16,7 +16,7 @@ export const chapter1en = {
         name: "5",
         position: "mt-150 ml-170 -rotate-2",
         description:
-          "A passport of Mladen Milanović in the form of a letter, 1814",
+          "A passport of Mladen Milovanović in the form of a letter, 1814",
         width: 320,
         height: 575,
       },
@@ -59,7 +59,7 @@ export const chapter1en = {
       quote: {
         text: "…the sparseness of the Serbian people... is increasing day after day; the circumstances in which a man doesn't feel safe in his own home, where he has no one to lean on; where he has no one to support him nor someone to endure the unbearable hardships with;... the Serbs in Kosovo feel more and more isolated and abandoned with each passing day.",
         author:
-          "Branislav Nušić, Kosovo – The Description of Land and People, 1902.",
+          "Branislav Nušić, Kosovo – The Description of Land and People, 1902",
         position: "left-30 top-80",
         image: "13",
         width: 610,

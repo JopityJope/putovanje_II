@@ -125,9 +125,9 @@ function page() {
                         </>
                       ) : (
                         <>
-                          <span className="ml-10">On the sources of</span>
+                          <span className="ml-10">On the Sources of</span>
                           <span className="ml-18 mt-2">
-                            faith and patriotism
+                            Faith and Patriotism
                           </span>
                         </>
                       )}

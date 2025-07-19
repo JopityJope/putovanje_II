@@ -179,7 +179,7 @@ function page() {
                         </>
                       ) : (
                         <>
-                          <span className="ml-10">In the service of</span>
+                          <span className="ml-10">In the Service of</span>
                           <span className="ml-18 mt-2">the Fatherland</span>
                         </>
                       )}

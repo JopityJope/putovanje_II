@@ -97,8 +97,7 @@ export const chapter3en = {
       pageNumber: "left-97 top-279.5",
       quote: {
         text: "<em>It is well known that the Principality of Serbia is a fairly small country... and yet full of various natural treasures and beauty; it is known that our homeland, as big as it is, caused our grandfathers and fathers immense suffering and bloodshed, and yet it is also well known that we, in many ways, do not know this wonderful yet rich, small but hard-earned homeland as well as we should.<em>",
-        author:
-          "Milan Đ. Milićević, <em>The Principality of Serbia</em>, 1876.",
+        author: "Milan Đ. Milićević, <em>The Principality of Serbia</em>, 1876",
         position: "left-107 top-90",
         image: "13",
         width: 610,

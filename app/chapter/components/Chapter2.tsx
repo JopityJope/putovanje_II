@@ -125,8 +125,8 @@ function page() {
                         </>
                       ) : (
                         <>
-                          <span className="ml-10">In search for</span>
-                          <span className="ml-18 mt-2">an extra coin</span>
+                          <span className="ml-10">In Search for</span>
+                          <span className="ml-18 mt-2">an Extra Coin</span>
                         </>
                       )}
                     </h1>

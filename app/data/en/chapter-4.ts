@@ -118,8 +118,7 @@ export const chapter4en = {
       pageNumber: "left-101 top-285",
       quote: {
         text: "<em>By describing our homeland's tall mountains, lively waterways, peaceful plains, dense forests, rich mines, the leftovers of ancient life and labor, battlegrounds, folk heroes, or other deserving people, we wanted... to produce as much reliable information about Serbia as possible, and to strengthen the love of Serbs, especially pupils, for the land where they felt the Sun's warmth for the first time. We wanted to highlight how much the present owes to the past and how much those who have plenty today have to thank the ones who suffered yesterday.</em>",
-        author:
-          "Milan Đ. Milićević, <em>The Principality of Serbia</em>, 1876.",
+        author: "Milan Đ. Milićević, <em>The Principality of Serbia</em>, 1876",
         position: "left-70 top-90",
         image: "13",
         width: 690,

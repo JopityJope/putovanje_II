@@ -9,7 +9,7 @@ export const chapter5en = {
       quote: {
         text: "<em>There are people who simply like to travel... especially for the sake of enjoyment... These people say, 'You can't talk and read at the same time, and Nature is the most interesting book, so that is why we want to read it slowly on our own. Blue skies above us, green fields and meadows with meandering roads passing through, mountain chains in front of us in the distance, and - our memories - we need nothing more'… However, there are fewer and fewer of such folks, especially since people started traveling using the power of steam and writing with the use of lightning.“</em>",
         author:
-          "<em>Traveler’s Notes by Vladan Đorđević: Istanbul and Bucharest</em>, 1874.",
+          "<em>Traveler’s Notes by Vladan Đorđević: Istanbul and Bucharest</em>, 1874",
         position: "left-75 top-325",
         image: "13",
         width: 700,
@@ -50,7 +50,7 @@ export const chapter5en = {
       quote: {
         text: "<em>It's strange, this sailor’s life! A man watches how the sun sets in one part of the world and then sees it rise in another.</em>",
         author:
-          "Milan Jovanović Morski, <em>Back and Forth Across the East</em>, 1894.",
+          "Milan Jovanović Morski, <em>Back and Forth Across the East</em>, 1894",
         position: "left-80 top-140",
         image: "12",
         width: 490,

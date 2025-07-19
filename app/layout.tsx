@@ -4,6 +4,7 @@ import PFAgora from "next/font/local";
 import "./globals.css";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ChapterProvider } from "./context/ChapterContext";
+import PreventRightClick from "./components/PreventDoubleClick";
 
 const PFAgoraRegular = PFAgora({
   src: "/fonts/PFAgoraSlabPro-Regular.ttf",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${PFAgoraRegular.className} antialiased text-[--crna] overflow-hidden w-full h-screen bg-[url('/images/background/bg-1.webp')] bg-no-repeat bg-cover`}
       >
+        <PreventRightClick />
         <LanguageProvider>
           <Header />
 

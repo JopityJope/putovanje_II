@@ -19,7 +19,7 @@ export const chapter6sr = {
         position: "mt-90 ml-75 rotate-2",
         width: 480,
         height: 575,
-        description: "Пасош издат на име Кате Башић, 1864",
+        description: "Пасош издат на име Кате Башић, 1864.",
       },
     },
     {

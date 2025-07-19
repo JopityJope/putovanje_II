@@ -3,6 +3,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 :root {
   /* --background: #1e1e1c; */
 

@@ -182,7 +182,7 @@ function page() {
                       ) : (
                         <>
                           <span className="ml-10">Women </span>
-                          <span className="ml-18">and travel </span>
+                          <span className="ml-18">and Travel </span>
                         </>
                       )}
                     </h1>
